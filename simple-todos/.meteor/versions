@@ -55,6 +55,7 @@ spacebars-compiler@1.0.5-winr.4
 srp@1.0.3-winr.2
 templating@1.0.12-winr.7
 tracker@1.0.6-winr.4
+twbs:bootstrap@3.3.4
 ui@1.0.6-winr.2
 underscore@1.0.3-winr.2
 url@1.0.4-winr.2

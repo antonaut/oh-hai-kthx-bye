@@ -13,7 +13,7 @@ if (Meteor.isClient) {
   Meteor.subscribe('tasks');
   // counter starts at 0
   Session.setDefault('counter', 0);
-  Session.set('appName', 'Simple-Todos');
+  Session.set('appName', 'Haiku 俳句');
   document.title = Session.get('appName');
   var incompleteCount = function() {
     return Tasks.find({
