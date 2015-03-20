@@ -1,8 +1,6 @@
-
 Meteor.subscribe('tasks');
-// counter starts at 0
-Session.setDefault('counter', 0);
-Session.set('appName', 'Simple-Todos');
+
+Session.set('appName', 'Haiku 俳句');
 document.title = Session.get('appName');
 var incompleteCount = function() {
   return Tasks.find({
@@ -21,11 +19,6 @@ Template.body.helpers({
   },
   appname: function() {
     return Session.get('appName');
-  },
-  incompleteCount: incompleteCount,
-  totalCount: totalCount,
-  doneCount: function() {
-    return totalCount() - incompleteCount();
   }
 });
 
@@ -61,19 +54,6 @@ Template.task.events({
 Template.task.helpers({
   isOwner: function() {
     return this.owner === Meteor.userId();
-  }
-});
-
-Template.hello.helpers({
-  counter: function() {
-    return Session.get('counter');
-  }
-});
-
-Template.hello.events({
-  'click button': function() {
-    // increment the counter when button is clicked
-    Session.set('counter', Session.get('counter') + 1);
   }
 });
 
