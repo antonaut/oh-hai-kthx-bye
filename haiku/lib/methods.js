@@ -1,51 +1,65 @@
 Meteor.methods({
-  addTask: function(text) {
+  addHaiku: function(text,imageSrc) {
     // Make sure the user is logged in before inserting a task
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
 
-    Tasks.insert({
+    Haikus.insert({
       text: text,
+      imageSrc: imageSrc,
       createdAt: new Date(),
       owner: Meteor.userId(),
       username: Meteor.user().username
     });
   },
-  deleteTask: function(taskId) {
-    var task = Tasks.findOne(taskId);
-    if (task.private && task.owner !== Meteor.userId() || !Meteor.user()) {
-      // If the task is private, make sure only the owner can delete it
+  deleteHaiku: function(haikuId) {
+    var haiku = Haikus.findOne(haikuId);
+    if (haiku.owner !== Meteor.userId() || !Meteor.user()) {
       throw new Meteor.Error("not-authorized");
     } else {
-      Tasks.remove(taskId);
+      Haikus.remove(haikuId);
     }
   },
-  setChecked: function(taskId, setChecked) {
-    var task = Tasks.findOne(taskId);
-    if (task.private && task.owner !== Meteor.userId() || !Meteor.user()) {
-      // If the task is private, make sure only the owner can check it off
-      throw new Meteor.Error("not-authorized");
-    } else {
-      Tasks.update(taskId, {
-        $set: {
-          checked: setChecked
-        }
-      });
-    }
-  },
-  setPrivate: function(taskId, setToPrivate) {
-    var task = Tasks.findOne(taskId);
-
-    // Make sure only the task owner can make a task private
-    if (task.owner !== Meteor.userId()) {
-      throw new Meteor.Error("not-authorized");
-    }
-
-    Tasks.update(taskId, {
-      $set: {
-        private: setToPrivate
+  addRemoveLike: function(haikuId) {
+      if (!Meteor.user()) {
+          throw new Meteor.Error("not-authorized");
       }
-    });
+      else {
+          var likeInfo = {
+              userId: Meteor.userId(),
+              haikuId: haikuId
+          };
+          var existingLikes = Likes.findOne(likeInfo);
+          if (existingLikes !== null) {
+              Likes.remove(likeInfo);
+          }
+          else {
+              Likes.insert(likeInfo);
+          }
+      }
+  },
+  addComment: function(haikuId,text){
+      if (!Meteor.user()) {
+          throw new Meteor.Error("not-authorized");
+      }
+      else{
+          Comments.insert({
+              userId: Meteor.userId(),
+              haikuId: haikuId,
+              text: text
+          });
+      }
+  },
+  removeComment: function(commentid)  {
+      var comment = Haikus.findOne(commentid);
+      var commentingUserId= comment["user"];
+
+      if (commentingUserId !== Meteor.userId() || !Meteor.user()){
+          throw new Meteor.Error("not-authorized");
+      }
+      else{
+          Comments.remove({userId:commentid});
+      }
   }
 });
