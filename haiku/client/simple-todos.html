@@ -5,7 +5,7 @@
   <!-- PAGE-HEADER --> 
   <header>
     {{> loginButtons}}
-    <h1>{{appname}}</h1>
+    <h1><b>{{appname}}</b></h1>
 
 
     <input id="dishSearchString" class="btn" type="text" name="string" value="" placeholder="search">
@@ -22,6 +22,8 @@
           <li><a href="#">Most shared</a></li>
         </ul>
     </div>
+
+    <button class="btn btn-default" id="createNewHaikuBtn" type="submit">Create Haiku</button>
 
 
 <!--
@@ -67,9 +69,9 @@
   <!--<h5>Tasks done ({{ doneCount }} / {{ totalCount }}):</h5>-->
 
   <ul>
-    {{#each tasks}}
+    <!--{{#each tasks}}-->
     {{> hej}}
-    {{/each}}
+    <!--{{/each}}-->
   </ul>
 
 </body>

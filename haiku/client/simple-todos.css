@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
-  background-color: #FFE7DD;
+  background-color: #CEF9CE;
   /*background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
   */
   background-attachment: fixed;
@@ -26,7 +26,7 @@ body {
 }
 
 header {
-  background: #8F8D8E;
+  background: #144914;
   /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
   */
   padding: 20px 15px 15px 15px;
@@ -42,7 +42,7 @@ header {
 }
 
 #firstPage{
-  background: #FFFFFF;
+  background: #E4FDE4;
 
 }
 
@@ -77,14 +77,35 @@ header {
     */
 }
 
+#createNewHaikuBtn {
+}
+
 #searchBtn {
 }
 
 #exploreBtn {
 }
 
+div.feature {
+    position: relative;
+}
+ 
+div.feature a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none; /* No underlines on the link */
+    z-index: 10; /* Places the link above everything else in the div */
+    background-color: #FFF; /* Fix to make div clickable in IE */
+    opacity: 0; /* Fix to make div clickable in IE */
+    filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
+
 h1 {
   font-size: 1.5em;
+  color: #E4FDE4;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
