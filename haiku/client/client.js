@@ -14,8 +14,29 @@ var totalCount = function() {
 };
 
 Template.body.helpers({
-  tasks: function() {
-    return Haikus.find({});
+  latestHaikus: function() {
+    return Haikus.find({$sort:{createdAt:-1},$limit:100});
+  },
+
+  mostLikedHaikus: function () {
+    /* TODO
+    Translate to MongoDB (SQL not tested)
+     SELECT *
+     FROM Haikus
+     WHERE haikuid IN (
+         SELECT haikuId FROM (
+             SELECT haikuId,COUNT(*) AS count
+             FROM Likes
+             GROUP BY haikuId
+             SORT BY count
+             LIMIT 100
+         )
+     )
+      */
+      //Starting to try:
+      Likes.aggregate([
+          {$group : {haikuId:"$haiku", count:{$sum:1}},$sort:{count:-1},$limit:100}
+      ]);
   },
   appname: function() {
     return Session.get('appName');
