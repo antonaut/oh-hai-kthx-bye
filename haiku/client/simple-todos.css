@@ -2,7 +2,8 @@
 body {
   font-family: sans-serif;
   background-color: #FFE7DD;
-  background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
+  /*background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
+  */
   background-attachment: fixed;
 
   position: absolute;
@@ -25,15 +26,61 @@ body {
 }
 
 header {
-  background: #d2edf4;
-  background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
+  background: #8F8D8E;
+  /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
+  */
   padding: 20px 15px 15px 15px;
   position: relative;
+}
+.navbar-form{
+  float: inherit;
 }
 
 #login-buttons {
   display: block;
   float: right;
+}
+
+#firstPage{
+  background: #FFFFFF;
+
+}
+
+#firstPageColumn1{
+  background: #FFFFFF;
+  border-color: #000000;
+  border-style: double;
+  /*margin: auto;
+  */
+}
+
+#firstPageColumn2{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: double;
+  /*margin: auto;
+  */
+}
+
+#haikuImage {
+  }
+
+#haikuText {
+  text-align: center;
+  /*border-color: #FFFFFF;
+  border-style: dashed;
+  */
+}
+
+.hejsan {
+    /*border-style: solid;
+    */
+}
+
+#searchBtn {
+}
+
+#exploreBtn {
 }
 
 h1 {
