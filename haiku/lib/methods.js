@@ -1,9 +1,9 @@
 Meteor.methods({
-  addHaiku: function(text,textFont,textColor,imageSrc) {
+  addHaiku: function(poemRow1,poemRow2,poemRow3,textFont,textColor,imageSrc) {
     // Make sure the user is logged in before inserting a task
-    /*if (!Meteor.userId()) {
+    if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
-    }*/
+    }
 
     //Checks that the color is allowed
     var colorAllowed=false;
@@ -29,24 +29,17 @@ Meteor.methods({
         }
         else {
             //Insert into collection
-            /*Haikus.insert({
-                text: text,
+            Haikus.insert({
+                poemRow1: poemRow1,
+                poemRow2: poemRow2,
+                poemRow3: poemRow3,
                 textFont: textFont,
                 textColor: textColor,
                 imageSrc: imageSrc,
                 createdAt: new Date(),
                 owner: Meteor.userId(),
                 username: Meteor.user().username
-            });*/
-            Haikus.insert({
-                text: text,
-                textFont: textFont,
-                textColor: textColor,
-                imageSrc: imageSrc,
-                createdAt: new Date(),
-                owner: "sdsdf234f23efeg",
-                username: "sdfsdsf"
-            })
+            });
         }
     }
   },
