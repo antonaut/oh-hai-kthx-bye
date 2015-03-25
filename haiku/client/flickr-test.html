@@ -1,0 +1,17 @@
+<body>
+	{{> flickrtest}}
+</body>
+
+<template name="flickrtest">
+	<form>
+		<input type="text" name="needle">
+		<input class="btn" type="submit" value="Search">
+	</form>
+	{{#each flickrPhotos}}
+		{{> flickrPhoto}}
+	{{/each}}
+</template>
+
+<template name="flickrPhoto">
+	<p>{{ title }}</p>
+</template>
