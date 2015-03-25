@@ -29,7 +29,7 @@ Meteor.methods({
         }
         else {
             //Insert into collection
-            Haikus.insert({
+            /*Haikus.insert({
                 text: text,
                 textFont: textFont,
                 textColor: textColor,
@@ -37,7 +37,16 @@ Meteor.methods({
                 createdAt: new Date(),
                 owner: Meteor.userId(),
                 username: Meteor.user().username
-            });
+            });*/
+            Haikus.insert({
+                text: text,
+                textFont: textFont,
+                textColor: textColor,
+                imageSrc: imageSrc,
+                createdAt: new Date(),
+                owner: "sdsdf234f23efeg",
+                username: "sdfsdsf"
+            })
         }
     }
   },
