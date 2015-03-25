@@ -61,6 +61,29 @@ header {
   /*margin: auto;
   */
 }
+#firstPageColumn1Row2{
+  background: #FFFFFF;
+  border-color: #000000;
+  border-style: double;
+  /*margin: auto;
+  */
+}
+
+#firstPageColumn2Row2{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: double;
+  /*margin: auto;
+  */
+}
+
+#createNewHaikuDiv{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: double;
+  padding: 10px;
+  margin-top: 10px;
+}
 
 #haikuImage {
   }
@@ -70,6 +93,11 @@ header {
   /*border-color: #FFFFFF;
   border-style: dashed;
   */
+}
+
+#editDiv{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .hejsan {
@@ -84,6 +112,10 @@ header {
 }
 
 #exploreBtn {
+}
+
+#postHaikuBtn {
+  float: right;
 }
 
 div.feature {
