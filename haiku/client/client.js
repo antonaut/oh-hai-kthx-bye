@@ -24,7 +24,8 @@ Template.body.helpers({
      SELECT *
      FROM Haikus
      WHERE haikuid IN (
-         SELECT haikuId FROM (
+         SELECT haikuId
+         FROM (
              SELECT haikuId,COUNT(*) AS count
              FROM Likes
              GROUP BY haikuId
