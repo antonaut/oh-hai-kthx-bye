@@ -1,14 +1,14 @@
 Meteor.methods({
   addHaiku: function(text,textFont,textColor,imageSrc) {
     // Make sure the user is logged in before inserting a task
-    if (!Meteor.userId()) {
+    /*if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
-    }
+    }*/
 
     //Checks that the color is allowed
     var colorAllowed=false;
     for(var indexColor in availableTextColors){
-        if(availableTextColors[indexColor][code]===textColor){
+        if(availableTextColors[indexColor].code===textColor){
             colorAllowed=true;
         }
     }
@@ -20,7 +20,7 @@ Meteor.methods({
         //Checks that the font is allowed
         var fontAllowed=false;
         for(var indexFont in availableTextFonts){
-            if(availableTextFonts[indexFont][name]===textFont){
+            if(availableTextFonts[indexFont].name===textFont){
                 fontAllowed=true;
             }
         }

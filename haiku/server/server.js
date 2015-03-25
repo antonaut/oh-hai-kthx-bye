@@ -1,4 +1,5 @@
 Meteor.startup(function() {
+    Meteor.call('addHaiku',"hejhej","Times New Roman","#0000FF","isdfsd.jpg");
 });
 
 Meteor.publish("haikus", function() {
