@@ -1,17 +1,45 @@
 Meteor.methods({
-  addHaiku: function(text,imageSrc) {
+  addHaiku: function(text,textFont,textColor,imageSrc) {
     // Make sure the user is logged in before inserting a task
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
 
-    Haikus.insert({
-      text: text,
-      imageSrc: imageSrc,
-      createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username
-    });
+    //Checks that the color is allowed
+    var colorAllowed=false;
+    for(var indexColor in availableTextColors){
+        if(availableTextColors[indexColor][code]===textColor){
+            colorAllowed=true;
+        }
+    }
+    if(!colorAllowed){
+        throw new Meteor.Error("incorrect-input");
+    }
+
+    else {
+        //Checks that the font is allowed
+        var fontAllowed=false;
+        for(var indexFont in availableTextFonts){
+            if(availableTextFonts[indexFont][name]===textFont){
+                fontAllowed=true;
+            }
+        }
+        if(!fontAllowed){
+            throw new Meteor.Error("incorrect-input");
+        }
+        else {
+            //Insert into collection
+            Haikus.insert({
+                text: text,
+                textFont: textFont,
+                textColor: textColor,
+                imageSrc: imageSrc,
+                createdAt: new Date(),
+                owner: Meteor.userId(),
+                username: Meteor.user().username
+            });
+        }
+    }
   },
   deleteHaiku: function(haikuId) {
     var haiku = Haikus.findOne(haikuId);
@@ -51,15 +79,15 @@ Meteor.methods({
           });
       }
   },
-  removeComment: function(commentid)  {
-      var comment = Haikus.findOne(commentid);
+  removeComment: function(commentId)  {
+      var comment = Haikus.findOne({_id:commentId});
       var commentingUserId= comment["user"];
 
       if (commentingUserId !== Meteor.userId() || !Meteor.user()){
           throw new Meteor.Error("not-authorized");
       }
       else{
-          Comments.remove({userId:commentid});
+          Comments.remove({_id:commentId});
       }
   }
 });
