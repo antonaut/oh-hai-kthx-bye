@@ -1,4 +1,6 @@
 Meteor.subscribe('haikus');
+Meteor.subscribe("likes");
+Meteor.subscribe('comments');
 
 Session.set('appName', 'Haiku 俳句');
 document.title = Session.get('appName');
@@ -13,9 +15,15 @@ var totalCount = function() {
   return Haikus.find({}).count();
 };
 
-Template.body.helpers({
+Template.firstPage.helpers({
   latestHaikus: function() {
-    return Haikus.find({$sort:{createdAt:-1},$limit:100});
+    var haikus = Haikus.find({}).map(function(document, index){
+          document.toTheLeft = index%2===0;
+          document.imagesSecond = index%4>=2;
+          return document;
+      });
+
+      return haikus;
   },
 
   mostLikedHaikus: function () {

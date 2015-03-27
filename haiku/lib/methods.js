@@ -1,5 +1,5 @@
 Meteor.methods({
-  addHaiku: function(text,textFont,textColor,imageSrc) {
+  addHaiku: function(poemRow1,poemRow2,poemRow3,textFont,textColor,imageSrc) {
     // Make sure the user is logged in before inserting a task
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
@@ -8,7 +8,7 @@ Meteor.methods({
     //Checks that the color is allowed
     var colorAllowed=false;
     for(var indexColor in availableTextColors){
-        if(availableTextColors[indexColor][code]===textColor){
+        if(availableTextColors[indexColor].code===textColor){
             colorAllowed=true;
         }
     }
@@ -20,7 +20,7 @@ Meteor.methods({
         //Checks that the font is allowed
         var fontAllowed=false;
         for(var indexFont in availableTextFonts){
-            if(availableTextFonts[indexFont][name]===textFont){
+            if(availableTextFonts[indexFont].name===textFont){
                 fontAllowed=true;
             }
         }
@@ -30,7 +30,9 @@ Meteor.methods({
         else {
             //Insert into collection
             Haikus.insert({
-                text: text,
+                poemRow1: poemRow1,
+                poemRow2: poemRow2,
+                poemRow3: poemRow3,
                 textFont: textFont,
                 textColor: textColor,
                 imageSrc: imageSrc,

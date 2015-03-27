@@ -5,132 +5,49 @@
     <h5><i>latest Haikus...</i>
     </h5>
   </div>
+    <div class="row" id="firstPage">
+    {{#each latestHaikus}}
+        {{>haiku}}
+    {{/each}}
+    </div>
+</template>
 
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-  <div class="row" id="firstPage">
+<template name="haiku">
 
     <!-- FIRST COLUMN -->
     <div class="row-same-height">
       <a href="http://google.com">
-        <div class="col-lg-5 col-lg-offset-1 feature" id="firstPageColumn1">
-          
+        <div class="col-lg-5 {{#if toTheLeft}}col-lg-offset-1 {{/if}}  feature" id="firstPageColumn1">
 
-          <!--HAIKU IMAGE-->
-            <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="269" height="269">
-              <img src="http://www.magic-mural-factory.com/Pictures/Articles/Tree%20Mural/Wallpaper-tree.jpg" width="269" height="269"/>   
-            </div>
+          {{#unless imagesSecond}}
+            {{>haikuImage}}
+          {{/unless}}
+          {{>haikuText}}
+          {{#if imagesSecond}}
+             {{>haikuImage}}
+          {{/if}}
 
-          <!--HAIKU TEXT-->
-            <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="269" height="269">
-              <br><br><br><br><br>
-              <p>" Haiku text will go here</p>
-              <p>bla bla bla bla bla bla bla</p>
-              <p>bla bla bla bla bla"</p>
-              <br><br><br><br>
-            </div>   
-
-          
         </div>
       </a>
     </div>
-    
 
-    <!-- SECOND COLUMN -->
-    
-    <div class="row-same-height">
-      <a href="http://google.com">
-        <div class="col-lg-5 feature" id="firstPageColumn2">
-        
-          <!--HAIKU IMAGE-->
-            <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="269" height="269">
-             <img src="http://images.wisegeek.com/misty-rainforest.jpg" width="269" height="269"/>   
-            </div>
 
-          <!--HAIKU TEXT-->
-            <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="269" height="269">
-              <br><br><br><br><br>
-              <p>" Haiku text will go here</p>
-              <p>bla bla bla bla bla bla bla</p>
-              <p>bla bla bla bla bla"</p>
-              <br><br><br><br>
-            </div>
-
-          
-        </div>
-      </a>
-
+</template>
+<template name="haikuImage">
+    <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="269" height="269">
+        <img src="{{imageSrc}}" width="269" height="269"/>
     </div>
-    
+   
 
   </div>
 
-  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-<div class="row" id="firstPage">
-
-    <!-- FIRST COLUMN -->
-    <div class="row-same-height">
-      <a href="http://google.com">
-        <div class="col-lg-5 col-lg-offset-1 feature" id="firstPageColumn1Row2">
-
-          <!--HAIKU TEXT-->
-            <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="269" height="269">
-              <br><br><br><br><br>
-              <p>" Haiku text will go here</p>
-              <p>bla bla bla bla bla bla bla</p>
-              <p>bla bla bla bla bla"</p>
-              <br><br><br><br>
-            </div>
-
-          <!--HAIKU IMAGE-->
-            <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="269" height="269">
-              <img src="http://wallpaperswa.com/thumbnails/detail/20120417/landscapes%20trees%20plants%20waterfalls%20peaceful%20natural%201920x1080%20wallpaper_wallpaperswa.com_84.jpg" width="269" height="269"/>   
-            </div>   
-
-          </div>
-      </a>
+</template>
+<template name="haikuText">
+    <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="269" height="269" style='font-family:"{{textFont}}";color:{{textColor}}'>
+        <br><br><br><br><br>
+        <p>{{poemRow1}}</p>
+        <p>{{poemRow2}}</p>
+        <p>{{poemRow3}}</p>
+        <br><br><br><br>
     </div>
-    
-
-    <!-- SECOND COLUMN -->
-    
-    <div class="row-same-height">
-      <a href="http://google.com">
-        <div class="col-lg-5 feature" id="firstPageColumn2Row2">
-
-          <!--HAIKU TEXT-->
-            <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="269" height="269">
-              <br><br><br><br><br>
-              <p>" Haiku text will go here</p>
-              <p>bla bla bla bla bla bla bla</p>
-              <p>bla bla bla bla bla"</p>
-              <br><br><br><br>
-            </div>
-
-          <!--HAIKU IMAGE-->
-            <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="269" height="269">
-             <img src="http://cdn.windows7themes.net/themes/longhorn_powerplus_for_win_7_by_sagorpirbd-d2lhc0s.jpg" width="269" height="269"/>   
-            </div>
-
-        </div>
-      </a>
-
-    </div>    
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </template>
