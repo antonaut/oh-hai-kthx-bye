@@ -51,9 +51,10 @@ if (Meteor.settings['flickr_api_key'] && Meteor.settings['flickr_api_secret']) {
 				'text': text
 			});
 
-			if (response.content) {
-				var a = JSON.parse(response.content);
-				return a.photos;
+			console.log(response.data);
+
+			if (response.data) {
+				return response.data;
 			} else {
 				throw new Meteor.Error('photo-search', 'Unable to find photos with text: ', text);
 			}

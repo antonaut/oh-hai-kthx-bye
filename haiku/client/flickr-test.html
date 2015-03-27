@@ -3,15 +3,17 @@
 </body>
 
 <template name="flickrtest">
-	<form>
-		<input type="text" name="needle">
-		<input class="btn" type="submit" value="Search">
-	</form>
-	{{#each flickrPhotos}}
-		{{> flickrPhoto}}
-	{{/each}}
+	<div class="container">
+		<form>
+			<input type="text" name="needle">
+			<input class="btn" type="submit" value="Search">
+		</form>
+		<ul>
+		{{flickrResults}}
+		</ul>
+	</div>
 </template>
 
 <template name="flickrPhoto">
-	<p>{{ title }}</p>
+	<li>aa{{ title }}</li>
 </template>
