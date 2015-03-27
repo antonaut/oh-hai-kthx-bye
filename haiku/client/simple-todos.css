@@ -31,6 +31,7 @@ header {
   */
   padding: 20px 15px 15px 15px;
   position: relative;
+  z-index: 1;
 }
 .navbar-form{
   float: inherit;
@@ -50,21 +51,18 @@ header {
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
-  /*margin: auto;
-  */
 }
 
 #firstPageColumn2{
   background: #FFFFFF; 
   border-color: #000000;
   border-style: double;
-  /*margin: auto;
-  */
 }
 #firstPageColumn1Row2{
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
+  padding: 0;
   /*margin: auto;
   */
 }
@@ -73,6 +71,7 @@ header {
   background: #FFFFFF; 
   border-color: #000000;
   border-style: double;
+  padding: 0;
   /*margin: auto;
   */
 }
@@ -86,18 +85,30 @@ header {
 }
 
 #haikuImage {
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   }
 
 #haikuText {
   text-align: center;
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   /*border-color: #FFFFFF;
   border-style: dashed;
   */
+}
+#haikuText p{
+  color: gray;
 }
 
 #editDiv{
   padding-top: 10px;
   padding-bottom: 10px;
+}
+#postBtnDiv{
+  padding-top: 10px;
 }
 
 .hejsan {
@@ -116,6 +127,7 @@ header {
 
 #postHaikuBtn {
   float: right;
+  padding-top: 10px;
 }
 
 div.feature {
