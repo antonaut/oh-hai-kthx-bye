@@ -5,27 +5,36 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
 
+      if(!(typeof poemRow1 === "string" && typeof poemRow2 === "string" && typeof poemRow3 === "string" && typeof imageSrc === "string")) {
+
+          throw new Meteor.Error("incorrect-input1")
+      }
+
+    Meteor._debug("color: "+textColor);
     //Checks that the color is allowed
     var colorAllowed=false;
     for(var indexColor in availableTextColors){
         if(availableTextColors[indexColor].code===textColor){
             colorAllowed=true;
         }
-    }
-    if(!colorAllowed){
-        throw new Meteor.Error("incorrect-input");
+        Meteor._debug("available: "+availableTextColors[indexColor].code);
     }
 
+    if(!colorAllowed){
+        throw new Meteor.Error("incorrect-input2 "+textColor);
+    }
     else {
         //Checks that the font is allowed
         var fontAllowed=false;
-        for(var indexFont in availableTextFonts){
-            if(availableTextFonts[indexFont].name===textFont){
+        for(var indexFont=0;indexFont<availableTextFonts.length;indexFont++){
+            if(availableTextFonts[indexFont].filePath===textFont){
                 fontAllowed=true;
             }
+
+
         }
         if(!fontAllowed){
-            throw new Meteor.Error("incorrect-input");
+            throw new Meteor.Error("incorrect-input3");
         }
         else {
             //Insert into collection
