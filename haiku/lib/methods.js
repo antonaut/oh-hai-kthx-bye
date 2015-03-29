@@ -10,14 +10,12 @@ Meteor.methods({
           throw new Meteor.Error("incorrect-input1")
       }
 
-    Meteor._debug("color: "+textColor);
     //Checks that the color is allowed
     var colorAllowed=false;
     for(var indexColor in availableTextColors){
         if(availableTextColors[indexColor].code===textColor){
             colorAllowed=true;
         }
-        Meteor._debug("available: "+availableTextColors[indexColor].code);
     }
 
     if(!colorAllowed){

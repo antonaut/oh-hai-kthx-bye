@@ -17,7 +17,7 @@ var totalCount = function() {
 
 Template.firstPage.helpers({
   latestHaikus: function() {
-    var haikus = Haikus.find({}).map(function(document, index){
+    var haikus = Haikus.find({},{sort:{createdAt:-1},limit:100}).map(function(document, index){
           document.toTheLeft = index%2===0;
           document.imagesSecond = index%4>=2;
           return document;
