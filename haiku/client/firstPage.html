@@ -16,7 +16,7 @@
 
     <!-- FIRST COLUMN -->
     <div class="row-same-height">
-      <a href="http://google.com">
+      <a href="#popUpHaiku">
         <div class="col-lg-5 {{#if toTheLeft}}col-lg-offset-1 {{/if}}  feature" id="firstPageColumn1">
 
           {{#unless imagesSecond}}
@@ -33,21 +33,46 @@
 
 
 </template>
+
 <template name="haikuImage">
-    <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="269" height="269">
-        <img src="{{imageSrc}}" width="269" height="269"/>
-    </div>
-   
-
-  </div>
-
+    <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="284" height="284">
+        <img src="{{imageSrc}}" width="284" height="284"/>
+    </div> 
 </template>
+
 <template name="haikuText">
-    <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="269" height="269" style='font-family:"{{textFont}}";color:{{textColor}}'>
+    <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="284" height="284" style='font-family:"{{textFont}}";color:{{textColor}}'>
         <br><br><br><br><br>
         <p>{{poemRow1}}</p>
         <p>{{poemRow2}}</p>
         <p>{{poemRow3}}</p>
         <br><br><br><br>
     </div>
+</template>
+
+<!-- När man hovrar över och klickar på en Haiku på firstPage är det DENNA div som ska poppa upp-->
+<template name="popUpHaiku" id="popUpHaiku"><a href="#" class="cancel">&times;</a> 
+   
+    <div class="row-same-height" id="imageAndTextDiv">
+      <div class="col-lg-10 col-lg-offset-1 feature" id="firstPageColumn1">
+
+          <!--HAIKU TEXT-->
+                <div class="col-lg-6 col-lg-height col-top" id="haikuText" width="440" height="440">
+                 <center>
+                    <br><br><br><br><br>
+                    <p>{{poemRow1}}</p>
+                    <p>{{poemRow2}}</p>
+                    <p>{{poemRow3}}</p>
+                    <br><br><br><br>
+                  </center>
+                </div> 
+
+          <!--HAIKU IMAGE-->
+                <div class="col-lg-6 col-lg-height col-bottom" id="haikuImage" width="440" height="440">
+                    <img src="http://www.magic-mural-factory.com/Pictures/Articles/Tree%20Mural/Wallpaper-tree.jpg" width="440" height="440"/>   
+                </div>
+          </div>
+    </div>
+  <div id="cover"></div> 
+
 </template>

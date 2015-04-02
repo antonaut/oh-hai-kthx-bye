@@ -48,10 +48,70 @@ header {
 }
 
 #firstPageColumn1{
+  padding: 0;
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
 }
+
+#firstPageColumn1:hover { 
+  -moz-box-shadow: 0 0 40px #144914; 
+  -webkit-box-shadow: 0 0 40px #144914; 
+  box-shadow: 0 0 40px #144914; 
+  z-index: 10;
+}
+
+#userProfileDiv{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: double;
+  padding: 15px;
+}
+
+#userPhoto{
+  padding: 0;
+}
+
+#cover{ 
+  position:fixed; 
+  top:0; 
+  left:0; 
+  background:rgba(0,0,0,0.6); 
+  z-index:5; 
+  width:100%; 
+  height:100%; 
+  display:none; } 
+
+#popUpHaiku { 
+  height:500px; 
+  width:500px; 
+  margin:0 auto; 
+  position:relative; 
+  z-index:10; 
+  display:none; 
+  background: url(login.png) 
+  no-repeat; 
+  border:5px double #cccccc; 
+  border-radius:0px; } 
+
+#popUpHaiku:target, #popUpHaiku:target + #cover{ 
+  background: #FFFFFF;
+  display:block; 
+  opacity:2; } 
+
+.cancel { 
+  display:block; 
+  position:absolute; 
+  top:3px; 
+  right:2px; 
+  background:rgb(245,245,245); 
+  color:black; 
+  height:30px; 
+  width:35px; 
+  font-size:30px; 
+  text-decoration:none; 
+  text-align:center; 
+  font-weight:bold; } 
 
 #firstPageColumn2{
   background: #FFFFFF; 
