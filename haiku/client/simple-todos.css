@@ -27,12 +27,14 @@ body {
 
 header {
   background: #144914;
+  width: 100%;
   /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
   */
   padding: 20px 15px 15px 15px;
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  z-index: 10;
 }
+
 .navbar-form{
   float: inherit;
 }
@@ -238,7 +240,9 @@ form {
 
 ul {
   margin: 0;
-  padding: 0;
+  padding-top: 70px;
+  padding-left: 0;
+  padding-right: 0;
   background: white;
 }
 

@@ -11,10 +11,10 @@
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <span class="glyphicon glyphicon-font"></span>
             </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Arial</a></li>
-              <li><a href="#">Times New Roman</a></li>
-              <li><a href="#">Calibri</a></li>
+            <ul class="dropdown-menu" id="font-chooser" role="menu">
+              {{#each getAvailableFontNames}}
+                  <li><a href="#">{{this}}</a></li>
+              {{/each}}
             </ul>
         </div>
 
@@ -23,10 +23,10 @@
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <span class="glyphicon glyphicon-eject"></span>
             </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Arial</a></li>
-              <li><a href="#">Times New Roman</a></li>
-              <li><a href="#">Calibri</a></li>
+            <ul class="dropdown-menu" id="color-chooser" role="menu">
+              {{#each getAvailableColorNames}}
+                <li><a href="#">{{this}}</a></li>
+              {{/each}}
             </ul>
         </div>
 
@@ -52,17 +52,17 @@
 
           <!--HAIKU TEXT-->
             		<div class="col-lg-6 col-lg-height col-top" id="haikuText" width="440" height="440">
-            			<form><center>
+            			<form><div style="text-align: center;">
 
                     <br><br><br><br>
-                    <p><i>5 syllables:</i></p><input type="text" name="row1" value="" size="40"><br><br>
-                    <p><i>7 syllables:</i></p><input type="text" name="row2" value="" size="40"><br><br>
-                    <p><i>5 syllables:</i></p><input type="text" name="row3" value="" size="40">
+                    <p><i>5 syllables:</i></p><input type="text" id="row1" value="" size="40"><br><br>
+                    <p><i>7 syllables:</i></p><input type="text" id="row2" value="" size="40"><br><br>
+                    <p><i>5 syllables:</i></p><input type="text" id="row3" value="" size="40">
 
                   <!--<textarea rows = "21" cols = "60">
             			
                   </textarea>-->
-                  </center>
+                  </div>
                   <!--<input type="text" name="firstname" value="Haiku text here">-->
             			<!--<input type="submit" value="Submit">-->
             			</form>
