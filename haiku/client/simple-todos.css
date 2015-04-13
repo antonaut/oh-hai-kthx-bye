@@ -57,6 +57,13 @@ header {
   border-style: double;
 }
 
+#firstPageColumn1MODAL{
+  padding: 0;
+  background: #FFFFFF;
+  border-color: #000000;
+  border-style: double;
+}
+
 #firstPageColumn1:hover { 
   -moz-box-shadow: 0 0 40px #144914; 
   -webkit-box-shadow: 0 0 40px #144914; 
@@ -162,6 +169,23 @@ header {
   border-style: dashed;
   */
 }
+
+#likeButton {
+  float: left;
+}
+
+#commentButton {
+  float: left;
+}
+
+#shareButton {
+  float: left;
+}
+
+#footerButtons {
+  padding: 1px;
+}
+
 #haikuText p{
   color: gray;
 }

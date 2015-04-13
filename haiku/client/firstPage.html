@@ -16,7 +16,7 @@
 
     <!-- FIRST COLUMN -->
     <div class="row-same-height ui-content" id="pageone" data-role="main">
-      <a href="#myPopup">
+      <a href="#" type ="button" data-toggle="modal" data-target="#modal-1">
       <!--<a href="#popUpHaiku">-->
         <div class="col-lg-5 {{#if toTheLeft}}col-lg-offset-1 {{/if}}  feature" id="firstPageColumn1">
 
@@ -33,24 +33,68 @@
 
 
 
+<!-- DETTA ÄR DIVEN SOM POPPAR UPP NÄR MAN KLICKAR PÅ EN HAIKU --> 
+  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-1">hej</button>-->
+    <div class="modal fade" id="modal-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+           <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <!-- USERNAME -->
+            <div id="username">
+              <h3 class="modal-title">Username</h3>
+            </div>
+
+           </div>
+
+           <div class="modal-body">
+
+            <div class="row-same-height ui-content" id="pageone" data-role="main">
+ 
+                <div class="col-lg-12 feature" id="firstPageColumn1MODAL">
+
+                      <!--Haiku Image--> 
+                      <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="431" height="431">
+                          <img src="{{imageSrc}}" width="431" height="431"/>
+                      </div> 
+
+                      <!--Haiku Text -->
+                      <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="431" height="431" style='font-family:"{{textFont}}";color:{{textColor}}'>
+                          <br><br><br><br><br><br><br><br>
+                          <p>{{poemRow1}}</p>
+                          <p>{{poemRow2}}</p>
+                          <p>{{poemRow3}}</p>
+                          <br><br><br><br>
+                      </div>
+                </div>
+            </div>
+            </div><br>   
+           
+                    
+
+           <div class="modal-footer" id="modal-footer">
+            <div id="footerButtons">
+              <button class="btn btn-default" id="likeButton"><span class="glyphicon glyphicon-heart"></span></button>
+              <button class="btn btn-default" id="commentButton"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" id="shareButton"><span class="glyphicon glyphicon-share"></span>Share</button>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 
-<template name ="myPopup">
-        <!-- POPUP -->
-      <div data-role="popup" id="myPopup">
-        <a href="#pageone" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="{{imageSrc}}" style="width:500px;height:500px;" alt="Skaret View">
-      </div>
 
-</template>
-
-
+<!-- -->
 <template name="haikuImage">
     <div class="col-lg-6 col-lg-height col-top" id="haikuImage" width="284" height="284">
         <img src="{{imageSrc}}" width="284" height="284"/>
     </div> 
 </template>
 
+<!-- -->
 <template name="haikuText">
     <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="284" height="284" style='font-family:"{{textFont}}";color:{{textColor}}'>
         <br><br><br><br><br>
@@ -60,50 +104,3 @@
         <br><br><br><br>
     </div>
 </template>
-
-<!-- När man hovrar över och klickar på en Haiku på firstPage är det DENNA div som ska poppa upp
-<template name="popUpHaiku" id="popUpHaiku"><a href="#" class="cancel">&times;</a> 
-   
-    <div class="row-same-height" id="imageAndTextDiv">
-      <div class="col-lg-10 col-lg-offset-1 feature" id="firstPageColumn1">
-
-          <!--HAIKU TEXT
-                <div class="col-lg-6 col-lg-height col-top" id="haikuText" width="440" height="440">
-                 <center>
-                    <br><br><br><br><br>
-                    <p>{{poemRow1}}</p>
-                    <p>{{poemRow2}}</p>
-                    <p>{{poemRow3}}</p>
-                    <br><br><br><br>
-                  </center>
-                </div> 
-
-          <!--HAIKU IMAGE
-                <div class="col-lg-6 col-lg-height col-bottom" id="haikuImage" width="440" height="440">
-                    <img src="http://www.magic-mural-factory.com/Pictures/Articles/Tree%20Mural/Wallpaper-tree.jpg" width="440" height="440"/>   
-                </div>
-          </div>
-    </div>
-  <div id="cover"></div> -->
-
-  <!-- POPUP 
-
-    <div id="pageone" data-role="main" class="ui-content">
-    <a href="#myPopup" data-rel="popup" data-position-to="window">
-    <img src="skaret.jpg" alt="Skaret View" style="width:200px;"></a>
-
-    <div data-role="popup" id="myPopup">
-      <p>This is my picture!</p> 
-      <a href="#pageone" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="skaret.jpg" style="width:800px;height:400px;" alt="Skaret View">
-    </div>
-    </div>
- 
-
-
-
-
-
-
-</template>
-
- -->
