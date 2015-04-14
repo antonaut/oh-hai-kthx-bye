@@ -1,6 +1,5 @@
 Meteor.methods({
   addHaiku: function(poemRow1,poemRow2,poemRow3,textFont,textColor,imageSrc) {
-
     // Make sure the user is logged in before inserting a task
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");

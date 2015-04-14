@@ -1,14 +1,17 @@
 <head>
 </head>
 <body>
+</body>
 
+<template name="nav">
   <!-- PAGE-HEADER --> 
   <header>
     {{> loginButtons}}
-    <h1><b>{{appname}}</b></h1>
+    <a href="."><h1><b>Haiku 俳句</b></h1>
+    </a>
 
 
-    <input id="dishSearchString" class="btn" type="text" name="string" value="" placeholder="search">
+    <input id="searchString" class="btn" type="text" name="string" value="" placeholder="search">
     <button id="searchBtn" class="btn"><span class="glyphicon glyphicon-search"></span></button>
 
     <div class="btn-group">
@@ -23,72 +26,9 @@
         </ul>
     </div>
 
-    <button class="btn btn-default" id="createNewHaikuBtn" type="submit">Create Haiku</button>
-
-
-<!--
-    <ul class="dropdown-menu" role="menu" aria-labelledby="Explore">
-      <li role="presentation"><a role="menuitem1" tabindex="-1" href="#">Top 100</a></li>
-      <li role="presentation"><a role="menuitem2" tabindex="-1" href="#">Most liked</a></li>
-      <li role="presentation"><a role="menuitem3" tabindex="-1" href="#">Most shared</a></li>
-    </ul>
-
--->
-
-
-    <!--<button class="btn" id="exploreBtn">Explore</button>
-  
-    <select id="exploreBtn" class="dropdown btn" name="values">
-      <option id="option3" value="top100">Top 100</option>
-      <option id="option1" value="mostShared">Most Shared</option>
-      <option id="option2" value="mostLiked">Most liked</option>  
-    </select>
-    -->
-
-    <!--<button class="btn">hej</button>
-    <form class="navbar-form" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
-      </button>
-    </form>
-    -->
+    <a class="btn btn-default" id="createNewHaikuBtn" type="submit" href="new-haiku">Create Haiku</a>
 
   </header>
-
-  <!--
-  {{#if currentUser}}
-  <h5>Add new task:</h5>
-    <form class="new-task">
-    <input type="text" name="text" placeholder="Type to add new tasks" />
-  </form>
-  {{/if}}
-  -->
-
-  <!--<h5>Tasks done ({{ doneCount }} / {{ totalCount }}):</h5>-->
-
-  <ul>
-    <!--{{#each tasks}}-->
-    {{> hej}}
-    <!--{{/each}}-->
-  </ul>
-
-</body>
-
-<template name="task">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-    <button class="delete">&times;</button>
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
-    {{#if isOwner}}
-    <button class="toggle-private">
-      {{#if private}}
-      Private
-      {{else}}
-      Public
-      {{/if}}
-    </button>
-    {{/if}}
-  </li>
+    <ul>
+    </ul>
 </template>
