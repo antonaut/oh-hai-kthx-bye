@@ -48,6 +48,21 @@ Meteor.methods({
                 username: Meteor.user().username
             });
         }
+      }
+      if (!fontAllowed) {
+        throw new Meteor.Error("incorrect-input");
+      } else {
+        //Insert into collection
+        Haikus.insert({
+          text: text,
+          textFont: textFont,
+          textColor: textColor,
+          imageSrc: imageSrc,
+          createdAt: new Date(),
+          owner: Meteor.userId(),
+          username: Meteor.user().username
+        });
+      }
     }
   },
   deleteHaiku: function(haikuId) {
@@ -59,44 +74,44 @@ Meteor.methods({
     }
   },
   addRemoveLike: function(haikuId) {
-      if (!Meteor.user()) {
-          throw new Meteor.Error("not-authorized");
+    if (!Meteor.user()) {
+      throw new Meteor.Error("not-authorized");
+    } else {
+      var likeInfo = {
+        userId: Meteor.userId(),
+        haikuId: haikuId
+      };
+      var existingLikes = Likes.findOne(likeInfo);
+      if (existingLikes !== null) {
+        Likes.remove(likeInfo);
+      } else {
+        Likes.insert(likeInfo);
       }
-      else {
-          var likeInfo = {
-              userId: Meteor.userId(),
-              haikuId: haikuId
-          };
-          var existingLikes = Likes.findOne(likeInfo);
-          if (existingLikes !== null) {
-              Likes.remove(likeInfo);
-          }
-          else {
-              Likes.insert(likeInfo);
-          }
-      }
+    }
   },
-  addComment: function(haikuId,text){
-      if (!Meteor.user()) {
-          throw new Meteor.Error("not-authorized");
-      }
-      else{
-          Comments.insert({
-              userId: Meteor.userId(),
-              haikuId: haikuId,
-              text: text
-          });
-      }
+  addComment: function(haikuId, text) {
+    if (!Meteor.user()) {
+      throw new Meteor.Error("not-authorized");
+    } else {
+      Comments.insert({
+        userId: Meteor.userId(),
+        haikuId: haikuId,
+        text: text
+      });
+    }
   },
-  removeComment: function(commentId)  {
-      var comment = Haikus.findOne({_id:commentId});
-      var commentingUserId= comment["user"];
+  removeComment: function(commentId) {
+    var comment = Haikus.findOne({
+      _id: commentId
+    });
+    var commentingUserId = comment["user"];
 
-      if (commentingUserId !== Meteor.userId() || !Meteor.user()){
-          throw new Meteor.Error("not-authorized");
-      }
-      else{
-          Comments.remove({_id:commentId});
-      }
+    if (commentingUserId !== Meteor.userId() || !Meteor.user()) {
+      throw new Meteor.Error("not-authorized");
+    } else {
+      Comments.remove({
+        _id: commentId
+      });
+    }
   }
 });

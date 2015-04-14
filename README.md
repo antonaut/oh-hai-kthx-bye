@@ -24,5 +24,14 @@ make a new haiku.
   as change her settings.
 
 ## External API
-We would like to use the Flickr API - https://www.flickr.com/services/api/flickr.photos.search.html for fetching images related to the
-words entered in the haikus.
+We are using the Flickr API - https://www.flickr.com/services/api/flickr.photos.search.html for fetching images related to the
+words entered in the haikus. The flickr API key and secret should be stored in a file called 'meteor-settings.json'
+which should look like this:
+
+>	{
+		"flickr_api_key": "API_KEY",
+		"flickr_api_secret": "SECRET"
+	}
+
+Meteor can then be launched with `meteor --settings ../meteor-settings.json` for loading the key and secret.
+
