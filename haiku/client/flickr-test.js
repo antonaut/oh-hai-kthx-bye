@@ -1,5 +1,12 @@
 Meteor.subscribe('flickr');
 
+var url = function(farm, server, id, secret, size) {
+	if (!size) {
+		size = '';
+	}
+	return 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
+};
+
 Session.set('flickrResults', {
 	photos: {
 		photo: [{
@@ -27,6 +34,7 @@ Template.flickrtest.events({
 				return;
 			}
 			var photos = result;
+			console.log('Set new photos', photos);
 			Session.set('flickrResults', photos);
 		});
 		event.preventDefault();
@@ -34,16 +42,28 @@ Template.flickrtest.events({
 });
 
 Template.flickrtest.helpers({
-	flickrResults: function() {
+	flickrPhotos: function() {
 		var flickrPhotos = Session.get('flickrResults');
-		return flickrPhotos['photo'] ? flickrPhotos['photo'] : [];
+		console.log('CALLED! photos: ', flickrPhotos);
+		if (flickrPhotos.photos && flickrPhotos.photos.photo) {
+			return flickrPhotos.photos.photo;
+		} else {
+			return [];
+		}
+	},
+	// Uses the url api
+	// https://www.flickr.com/services/api/misc.urls.html
+});
+
+Template.flickrLargeSquare.helpers({
+	url: function(farm, server, id, secret) {
+		return url(farm, server, id, secret, '_q');
 	}
 });
 
-// Uses the url api
-// https://www.flickr.com/services/api/misc.urls.html
-Template.flickrPhoto.helpers({
-	url: function(farmID, serverID, id, secret) {
-		return 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg';
+Template.flickrSquare.helpers({
+	url: function(farm, server, id, secret) {
+		return url(farm, server, id, secret, '_s');
 	}
 });
+

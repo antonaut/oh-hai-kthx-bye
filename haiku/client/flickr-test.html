@@ -1,19 +1,25 @@
 <body>
-	{{> flickrtest}}
+    {{> flickrtest}}
 </body>
 
 <template name="flickrtest">
-	<div class="container">
-		<form>
-			<input type="text" name="needle">
-			<input class="btn" type="submit" value="Search">
-		</form>
-		<ul>
-		{{flickrResults}}
-		</ul>
-	</div>
+    <div class="container">
+        <form>
+            <input type="text" name="needle">
+            <input class="btn" type="submit" value="Search">
+        </form>
+        <ul class="container">
+        {{#each flickrPhotos}}
+            <li class="col-md-4">{{>flickrSquare}}</li>
+        {{/each}}
+        </ul>
+    </div>
 </template>
 
-<template name="flickrPhoto">
-	<li>aa{{ title }}</li>
+<template name="flickrLargeSquare">
+    <img src={{url farm server id secret}}>
+</template>
+
+<template name="flickrSquare">
+    <img src={{url farm server id secret}}>
 </template>
