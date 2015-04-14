@@ -1,4 +1,6 @@
 Meteor.subscribe('haikus');
+Meteor.subscribe("likes");
+Meteor.subscribe('comments');
 
 Session.set('appName', 'Haiku 俳句');
 document.title = Session.get('appName');
@@ -13,9 +15,15 @@ var totalCount = function() {
   return Haikus.find({}).count();
 };
 
-Template.body.helpers({
+Template.firstPage.helpers({
   latestHaikus: function() {
-    return Haikus.find({$sort:{createdAt:-1},$limit:100});
+    var haikus = Haikus.find({},{sort:{createdAt:-1},limit:100}).map(function(document, index){
+          document.toTheLeft = index%2===0;
+          document.imagesSecond = index%4>=2;
+          return document;
+      });
+
+      return haikus;
   },
 
   mostLikedHaikus: function () {
@@ -60,23 +68,65 @@ Template.body.events({
   }*/
 });
 
-Template.task.events({
-  /*"click .toggle-checked": function() {
-    // Set the checked property to the opposite of its current value
-    Meteor.call('setChecked', this._id, !this.checked, logRes);
-  },
-  "click .delete": function() {
-    Meteor.call('deleteHaiku', this._id, logRes);
-  },
-  "click .toggle-private": function() {
-    Meteor.call("setPrivate", this._id, !this.private);
-  }*/
+Template.createNewHaiku.events({
+    "click #postHaikuBtn" : function(event, template){
+        var row1 = template.find("#row1").value;
+        var row2 = template.find("#row2").value;
+        var row3 = template.find("#row3").value;
+        var theFontToUse;
+
+        if (typeof chosenFont === 'undefined') {
+            theFontToUse = availableTextFonts[0].filePath;
+
+        }
+        else{
+            for(var i=0;i<availableTextFonts.length;i++){
+                if(availableTextFonts[i].name===chosenFont){
+                    theFontToUse = availableTextFonts[i].filePath;
+                    break;
+                }
+            }
+        }
+        console.log(theFontToUse);
+
+        var theColorToUse
+        if (typeof chosenColor === 'undefined') {
+            theColorToUse = availableTextColors[0].code;
+        }
+        else{
+            for(var j=0;j<availableTextColors.length;j++){
+                if(availableTextColors[i].name===chosenColor){
+                    theColorToUse = availableTextColors[i].code;
+                    break;
+                }
+            }
+        }
+        Meteor.call('addHaiku',row1,row2,row3,theFontToUse,theColorToUse,"http://vignette3.wikia.nocookie.net/jadensadventures/images/5/54/Pokemon-Ash-s-Pikachu-Riley-Sir-Aaron-s-Lucarios-pokemon-guys-10262907-563-579.jpg/revision/latest?cb=20120902022940");
+    },
+    "click #font-chooser li a" : function(event){
+        chosenFont = event.target.innerHTML;
+    },
+    "click #color-chooser li a" : function(event){
+        chosenColor = event.target.innerHTML;
+    }
 });
 
-Template.task.helpers({
-  isOwner: function() {
-    return this.owner === Meteor.userId();
-  }
+
+Template.createNewHaiku.helpers({
+    getAvailableFontNames:function(){
+        var fontNames = [];
+        for(var i=0;i<availableTextFonts.length;i++){
+            fontNames.push(availableTextFonts[i].name);
+        }
+        return fontNames;
+    },
+    getAvailableColorNames: function () {
+        var colorNames = [];
+        for(var i=0;i<availableTextColors.length;i++){
+            colorNames.push(availableTextColors[i].name)
+        }
+        return colorNames;
+    }
 });
 
 Accounts.ui.config({

@@ -19,19 +19,22 @@ body {
 }
 
 .container {
-  max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
-  background: white;
+  background: inherit;
+  padding: 0;
 }
 
 header {
   background: #144914;
+  width: 100%;
   /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
   */
   padding: 20px 15px 15px 15px;
-  position: relative;
+  position: fixed;
+  z-index: 10;
 }
+
 .navbar-form{
   float: inherit;
 }
@@ -39,6 +42,7 @@ header {
 #login-buttons {
   display: block;
   float: right;
+  
 }
 
 #firstPage{
@@ -47,29 +51,154 @@ header {
 }
 
 #firstPageColumn1{
+  padding: 0;
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
-  /*margin: auto;
-  */
 }
+
+#firstPageColumn1MODAL{
+  padding: 0;
+  background: #FFFFFF;
+  border-color: #000000;
+  border-style: double;
+}
+
+#firstPageColumn1:hover { 
+  -moz-box-shadow: 0 0 40px #144914; 
+  -webkit-box-shadow: 0 0 40px #144914; 
+  box-shadow: 0 0 40px #144914; 
+  z-index: 10;
+}
+
+#userProfileDiv{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: double;
+  padding: 15px;
+}
+
+#userPhoto{
+  padding: 0;
+}
+
+#cover{ 
+  position:fixed; 
+  top:0; 
+  left:0; 
+  background:rgba(0,0,0,0.6); 
+  z-index:5; 
+  width:100%; 
+  height:100%; 
+  display:none; } 
+
+#popUpHaiku { 
+  height:500px; 
+  width:500px; 
+  margin:0 auto; 
+  position:relative; 
+  z-index:10; 
+  display:none; 
+  background: url(login.png) 
+  no-repeat; 
+  border:5px double #cccccc; 
+  border-radius:0px; } 
+
+#popUpHaiku:target, #popUpHaiku:target + #cover{ 
+  background: #FFFFFF;
+  display:block; 
+  opacity:2; } 
+
+.cancel { 
+  display:block; 
+  position:absolute; 
+  top:3px; 
+  right:2px; 
+  background:rgb(245,245,245); 
+  color:black; 
+  height:30px; 
+  width:35px; 
+  font-size:30px; 
+  text-decoration:none; 
+  text-align:center; 
+  font-weight:bold; } 
 
 #firstPageColumn2{
   background: #FFFFFF; 
   border-color: #000000;
   border-style: double;
+}
+#firstPageColumn1Row2{
+  background: #FFFFFF;
+  border-color: #000000;
+  border-style: double;
+  padding: 0;
   /*margin: auto;
   */
 }
 
+#firstPageColumn2Row2{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: double;
+  padding: 0;
+  /*margin: auto;
+  */
+}
+
+#createNewHaikuDiv{
+  background: #FFFFFF; 
+  border-color: #000000;
+  border-style: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+
 #haikuImage {
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   }
 
 #haikuText {
   text-align: center;
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   /*border-color: #FFFFFF;
   border-style: dashed;
   */
+}
+
+#likeButton {
+  float: left;
+  padding: 10px;
+}
+
+#commentButton {
+  float: left;
+  padding: 10px;
+}
+
+#shareButton {
+  float: right;
+  padding: 10px;
+}
+
+#footerButtons {
+  padding: 1px;
+}
+
+#haikuText p{
+  color: gray;
+}
+
+#editDiv{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#postBtnDiv{
+  padding-top: 10px;
 }
 
 .hejsan {
@@ -84,6 +213,11 @@ header {
 }
 
 #exploreBtn {
+}
+
+#postHaikuBtn {
+  float: right;
+  padding-top: 10px;
 }
 
 div.feature {
@@ -134,7 +268,9 @@ form {
 
 ul {
   margin: 0;
-  padding: 0;
+  padding-top: 70px;
+  padding-left: 0;
+  padding-right: 0;
   background: white;
 }
 
