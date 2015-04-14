@@ -47,9 +47,20 @@ Template.firstPage.helpers({
           {$group : {haikuId:"$haiku", count:{$sum:1}},$sort:{count:-1},$limit:100}
       ]);
   },
+  getPopupTemplate: function(){
+      return
+  },
   appname: function() {
     return Session.get('appName');
   }
+});
+
+Template.firstPage.events({
+   "click .haikuDiv" : function(event){
+       var id = event.currentTarget.id;
+       var haikuData = Haikus.findOne({_id:id});
+       Modal.show('haikuPopup',haikuData);
+   }
 });
 
 Template.body.events({
