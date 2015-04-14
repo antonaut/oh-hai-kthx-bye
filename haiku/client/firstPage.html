@@ -17,7 +17,7 @@
 
     <!-- FIRST COLUMN -->
     <div class="row-same-height ui-content" id="pageone" data-role="main">
-      <a href="#" type ="button" data-toggle="modal" data-target="#modal-1">
+      <a href="http://www.google.com" type ="button" data-toggle="modal" data-target="#modal-1">
       <!--<a href="#popUpHaiku">-->
         <div class="col-lg-5 {{#if toTheLeft}}col-lg-offset-1 {{/if}}  feature" id="firstPageColumn1">
 
@@ -76,14 +76,17 @@
 
            <div class="modal-footer" id="modal-footer">
             <div id="footerButtons">
-              <button class="btn btn-default" id="likeButton"><span class="glyphicon glyphicon-heart"></span></button>
-              <button class="btn btn-default" id="commentButton"><span class="glyphicon glyphicon-pencil"></span></button>
+              <!--<button class="btn btn-default" id="likeButton"><span class="glyphicon glyphicon-heart"></span></button>-->
+              <a href="#" id="likeButton"><span class="glyphicon glyphicon-heart" style="color:black"></span></a>
+              <!--<button class="btn btn-default" id="commentButton"><span class="glyphicon glyphicon-pencil"></span></button>-->
+              <a href="#" id="commentButton"><span class="glyphicon glyphicon-comment"></span></a>
               <button class="btn btn-default" id="shareButton"><span class="glyphicon glyphicon-share"></span>Share</button>
             </div>
            </div>
           </div>
         </div>
       </div>
+
     </div>
 </template>
 
