@@ -1,0 +1,104 @@
+<template name="createNewHaiku">
+  {{>nav}}
+
+  <!-- CREATE NEW HAIKU TEMPLATE -->
+
+	<div class ="col-lg-10 col-lg-offset-1" id="createNewHaikuDiv">
+
+     <!-- EDIT HAIKU DIV -->
+    <div class="col-lg-10 col-lg-offset-1" id="editDiv">
+      <!-- FONT-->
+      <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-font"></span>
+            </button>
+            <ul class="dropdown-menu" id="font-chooser" role="menu">
+              {{#each getAvailableFontNames}}
+                  <li><a href="#">{{this}}</a></li>
+              {{/each}}
+            </ul>
+        </div>
+
+        <!-- FONT COLOR BUTTON -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-text-color"></span>
+            </button>
+            <ul class="dropdown-menu" id="color-chooser" role="menu">
+              {{#each getAvailableColorNames}}
+                <li><a href="#">{{this}}</a></li>
+              {{/each}}
+            </ul>
+        </div>
+
+        <!-- REFRESH IMAGE BUTTON -->
+         <div class="btn-group">
+            <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+        </div>
+
+        <!-- INFO BUTTON -->
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-info-sign"></span></button>
+          <div id="demo" class="collapse">
+            <h5><i>Haiku is a short form of Japanese poetry that consists of 17 syllables divided into three phrases of 5, 7 and 5 syllables..
+            </i></h5>
+          </div>
+    </div>
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!--> 
+
+    <!-- HAIKUIMAGE and -TEXT DIV-->
+		<div class="row-same-height" id="imageAndTextDiv">
+			<div class="col-lg-10 col-lg-offset-1 feature" id="firstPageColumn1MODAL">
+
+          <!--HAIKU TEXT-->
+            		<div class="col-lg-6 col-lg-height col-top" id="haikuText" width="440" height="440">
+            			<form><div style="text-align: center;">
+
+                    <br><br><br><br>
+                    <p><i>5 syllables:</i></p><input type="text" id="row1" value="" size="40"><br><br>
+                    <p><i>7 syllables:</i></p><input type="text" id="row2" value="" size="40"><br><br>
+                    <p><i>5 syllables:</i></p><input type="text" id="row3" value="" size="40">
+
+                  <!--<textarea rows = "21" cols = "60">
+            			
+                  </textarea>-->
+                  </div>
+                  <!--<input type="text" name="firstname" value="Haiku text here">-->
+            			<!--<input type="submit" value="Submit">-->
+            			</form>
+            		</div> 
+
+          <!--HAIKU IMAGE-->
+                <div class="col-lg-6 col-lg-height col-bottom" id="haikuImage" width="440" height="440">
+                    <img src="http://www.magic-mural-factory.com/Pictures/Articles/Tree%20Mural/Wallpaper-tree.jpg" width="440" height="440"/>   
+                </div>
+        	</div>
+		</div>
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!--> 
+
+    <!-- POST BUTTON-->
+    <div class="col-lg-2 col-lg-offset-9" id="postBtnDiv">
+      <button class="btn btn-default btn-lg" id="postHaikuBtn" type="submit">Post</button>
+    </div>
+    <!-- -->
+
+  </div>
+       
+
+</template>
+
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!
+
+			<button id="likeBtn" class="btn">
+				<span class="glyphicon glyphicon-heart"></span>
+			</button>
+			<p>like-knapp</p>
+			
+			<h2>Heart Glyph</h2>
+      			<p>Heart icon: <span class="glyphicon glyphicon-heart"></span></p>    
+      			<p>Heart icon as a link:
+        		<a href="#">
+          			<span class="glyphicon glyphicon-heart"></span>
+        		</a>
+      			</p>-->
