@@ -64,7 +64,7 @@ Meteor.methods({
         });
       }
     }
-  },
+  ,
   deleteHaiku: function(haikuId) {
     var haiku = Haikus.findOne(haikuId);
     if (haiku.owner !== Meteor.userId() || !Meteor.user()) {
