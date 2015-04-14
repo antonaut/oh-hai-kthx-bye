@@ -4,16 +4,6 @@ Meteor.subscribe('comments');
 
 Session.set('appName', 'Haiku 俳句');
 document.title = Session.get('appName');
-var incompleteCount = function() {
-  return Haikus.find({
-    checked: {
-      $ne: true
-    }
-  }).count();
-};
-var totalCount = function() {
-  return Haikus.find({}).count();
-};
 
 Template.firstPage.helpers({
   latestHaikus: function() {
@@ -61,22 +51,6 @@ Template.firstPage.events({
        var haikuData = Haikus.findOne({_id:id});
        Modal.show('haikuPopup',haikuData);
    }
-});
-
-Template.body.events({
-  /*"submit .new-task": function(event) {
-    // This function is called when the new task form is submitted
-
-    var text = event.target.text.value;
-
-    Meteor.call('addHaiku', text, logRes);
-
-    // Clear form
-    event.target.text.value = "";
-
-    // Prevent default form submit
-    return false;
-  }*/
 });
 
 Template.createNewHaiku.events({
