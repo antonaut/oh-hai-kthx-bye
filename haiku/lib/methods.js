@@ -6,7 +6,6 @@ Meteor.methods({
     }
 
     if (!(typeof poemRow1 === "string" && typeof poemRow2 === "string" && typeof poemRow3 === "string" && typeof imageSrc === "string")) {
-
       throw new Meteor.Error("incorrect-input1")
     }
 
@@ -20,32 +19,30 @@ Meteor.methods({
 
     if (!colorAllowed) {
       throw new Meteor.Error("incorrect-input2 " + textColor);
+    }
+
+    //Checks that the font is allowed
+    var fontAllowed = false;
+    for (var indexFont = 0; indexFont < availableTextFonts.length; indexFont++) {
+      if (availableTextFonts[indexFont].filePath === textFont) {
+        fontAllowed = true;
+      }
+    }
+    if (!fontAllowed) {
+      throw new Meteor.Error("incorrect-input3");
     } else {
-      //Checks that the font is allowed
-      var fontAllowed = false;
-      for (var indexFont = 0; indexFont < availableTextFonts.length; indexFont++) {
-        if (availableTextFonts[indexFont].filePath === textFont) {
-          fontAllowed = true;
-        }
-
-
-      }
-      if (!fontAllowed) {
-        throw new Meteor.Error("incorrect-input3");
-      } else {
-        //Insert into collection
-        Haikus.insert({
-          poemRow1: poemRow1,
-          poemRow2: poemRow2,
-          poemRow3: poemRow3,
-          textFont: textFont,
-          textColor: textColor,
-          imageSrc: imageSrc,
-          createdAt: new Date(),
-          owner: Meteor.userId(),
-          username: Meteor.user().username
-        });
-      }
+      //Insert into collection
+      Haikus.insert({
+        poemRow1: poemRow1,
+        poemRow2: poemRow2,
+        poemRow3: poemRow3,
+        textFont: textFont,
+        textColor: textColor,
+        imageSrc: imageSrc,
+        createdAt: new Date(),
+        owner: Meteor.userId(),
+        username: Meteor.user().username
+      });
     }
     if (!fontAllowed) {
       throw new Meteor.Error("incorrect-input");

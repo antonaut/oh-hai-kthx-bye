@@ -11,3 +11,4 @@ accounts-facebook
 twbs:bootstrap
 http
 iron:router
+peppelg:bootstrap-3-modal
