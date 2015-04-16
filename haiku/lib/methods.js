@@ -44,20 +44,6 @@ Meteor.methods({
         username: Meteor.user().username
       });
     }
-    if (!fontAllowed) {
-      throw new Meteor.Error("incorrect-input");
-    } else {
-      //Insert into collection
-      Haikus.insert({
-        text: text,
-        textFont: textFont,
-        textColor: textColor,
-        imageSrc: imageSrc,
-        createdAt: new Date(),
-        owner: Meteor.userId(),
-        username: Meteor.user().username
-      });
-    }
   },
   deleteHaiku: function(haikuId) {
     var haiku = Haikus.findOne(haikuId);
