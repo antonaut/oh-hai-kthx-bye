@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Coming Soon', cursive, sans-serif;
   background-color: #CEF9CE;  /*background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
     */
   background-attachment: fixed;
@@ -32,6 +32,12 @@ header {
 #login-buttons {
   display: block;
   float: right;
+}
+#login-buttons a, #login-buttons a:visited, #login-buttons a:active{
+  color: #eee;
+}
+#login-buttons a:focus, #login-buttons a:hover {
+  color: #fff;
 }
 #firstPage {
   background: #E4FDE4;
