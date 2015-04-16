@@ -7,7 +7,9 @@ document.title = Session.get('appName');
 
 
 
-
+Template.registerHelper("isLoggedIn",function(){
+  return Boolean(Meteor.userId());
+});
 
 Accounts.ui.config({
   passwordSignupFields: "USERNAME_ONLY"
