@@ -1,7 +1,6 @@
 body {
   font-family: 'Coming Soon', cursive, sans-serif;
-  background-color: #CEF9CE;  /*background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
-    */
+  background-color: #CEF9CE;
   background-attachment: fixed;
   position: absolute;
   top: 0;
@@ -14,14 +13,12 @@ body {
 }
 .container {
   margin: 0 auto;
-  min-height: 100%;
   background: inherit;
   padding: 0;
 }
 header {
   background: #144914;
-  width: 100%;  /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
-    */
+  width: 100%;
   padding: 20px 15px 15px 15px;
   position: fixed;
   z-index: 10;
@@ -32,6 +29,12 @@ header {
 #login-buttons {
   display: block;
   float: right;
+}
+#login-buttons #login-dropdown-list {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: inherit;
 }
 #login-buttons a, #login-buttons a:visited, #login-buttons a:active{
   color: #eee;
@@ -44,15 +47,12 @@ header {
 }
 #firstPageColumn1 {
   padding: 0;
-  background: #FFFFFF;
-  border-color: #000000;
+  background: #fff;
+  border-color: #000;
   border-style: double;
 }
 #firstPageColumn1MODAL {
-  padding: 0;
-  background: #FFFFFF;
-  border-color: #000000;
-  border-style: double;
+
 }
 #firstPageColumn1:hover {
   -moz-box-shadow: 0 0 40px #144914;
@@ -61,8 +61,8 @@ header {
   z-index: 10;
 }
 #userProfileDiv {
-  background: #FFFFFF;
-  border-color: #000000;
+  background: #fff;
+  border-color: #000;
   border-style: double;
   padding: 15px;
 }
@@ -92,7 +92,7 @@ header {
   border-radius: 0px;
 }
 #popUpHaiku:target, #popUpHaiku:target + #cover {
-  background: #FFFFFF;
+  background: #fff;
   display: block;
   opacity: 2;
 }
@@ -111,43 +111,49 @@ header {
   font-weight: bold;
 }
 #firstPageColumn2 {
-  background: #FFFFFF;
-  border-color: #000000;
+  background: #fff;
+  border-color: #000;
   border-style: double;
 }
 #firstPageColumn1Row2 {
-  background: #FFFFFF;
-  border-color: #000000;
+  background: #fff;
+  border-color: #000;
   border-style: double;
-  padding: 0;  /*margin: auto;
-    */
+  padding: 0;
 }
 #firstPageColumn2Row2 {
-  background: #FFFFFF;
-  border-color: #000000;
+  background: #fff;
+  border-color: #000;
   border-style: double;
-  padding: 0;  /*margin: auto;
-    */
-}
-#createNewHaikuDiv {
-  background: #FFFFFF;
-  border-color: #000000;
-  border-style: none;
-  padding: 10px;
-  margin-top: 10px;
-}
-#haikuImage {
   padding: 0;
-  padding-left: 0;
-  padding-right: 0;
+}
+#createNewHaiku {
+  background: rgba(255,255,255,0.5);
+  border-color: #000;
+  border-style: none;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 5px 5px;
+}
+#imageAndTextDiv form {
+  margin: 20px 0;
+}
+
+#haikuImage img {
+  width: inherit;
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px 5px;
+  border: #000 double;
 }
 #haikuText {
   text-align: center;
   padding: 0;
   padding-left: 0;
-  padding-right: 0;  /*border-color: #FFFFFF;
-      border-style: dashed;
-    */
+  padding-right: 0;
+  background: rgba(255,255,255,0.8);
+  border-radius: 5px 5px;
+  margin: 10px 0;
 }
 #likeButton {
   float: left;
@@ -166,6 +172,7 @@ header {
 }
 #haikuText p {
   color: gray;
+  margin: 10px auto;
 }
 #editDiv {
   padding-top: 10px;
@@ -173,17 +180,6 @@ header {
 }
 #postBtnDiv {
   padding-top: 10px;
-}
-.hejsan {
-
-  /*border-style: solid;
-  */
-}
-#createNewHaikuBtn {
-}
-#searchBtn {
-}
-#exploreBtn {
 }
 #postHaikuBtn {
   float: right;
@@ -211,11 +207,6 @@ h1 {
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
-}
-form {
-  margin-top: 10px;
-  margin-bottom: -10px;
-  position: relative;
 }
 .new-task input {
   box-sizing: border-box;
@@ -261,6 +252,16 @@ header .hide-completed {
 }
 .toggle-private {
   margin-left: 5px;
+}
+.inspiration {
+  position: fixed;
+  top: 70px;
+  z-index: -100;
+  min-width: 123%;
+}
+.inspiration .inspirationPhoto {
+  float: left;
+  display: block;
 }
 @media (max-width:600px) {
   li {

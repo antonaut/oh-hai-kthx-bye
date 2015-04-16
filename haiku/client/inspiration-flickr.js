@@ -9,7 +9,7 @@ var url = function(farm, server, id, secret, size) {
 
 Session.set('flickrResults', {
 	photos: {
-		photo: [{
+		photo: [/*{
 			id: '16287638134',
 			owner: '130080108@N02',
 			secret: 'd3ff2ffc58',
@@ -19,29 +19,20 @@ Session.set('flickrResults', {
 			ispublic: 1,
 			isfriend: 0,
 			isfamily: 0
-		}],
+		}*/],
 	},
 });
 
+
 Template.flickrtest.events({
 	'submit': function(event) {
-
 		var needle = event.target.needle.value;
-		console.info('searched for: ', needle);
-		Meteor.call('flickrSearchPhotos', needle, function(error, result) {
-			if (error) {
-				console.error(error);
-				return;
-			}
-			var photos = result;
-			console.log('Set new photos', photos);
-			Session.set('flickrResults', photos);
-		});
+		flickrSearch(needle);
 		event.preventDefault();
 	}
 });
 
-Template.flickrtest.helpers({
+Template.inspirationPhotos.helpers({
 	flickrPhotos: function() {
 		var flickrPhotos = Session.get('flickrResults');
 		console.log('CALLED! photos: ', flickrPhotos);
