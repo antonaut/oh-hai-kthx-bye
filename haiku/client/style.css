@@ -1,242 +1,203 @@
-/* CSS declarations go here */
 body {
   font-family: sans-serif;
-  background-color: #CEF9CE;
-  /*background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
-  */
+  background-color: #CEF9CE;  /*background-image: linear-gradient(to bottom, #CF7856, #FFFFFF 100%);
+    */
   background-attachment: fixed;
-
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
-  padding: 0;
+  padding-top: 70px;
   margin: 0;
-
   font-size: 14px;
 }
-
 .container {
   margin: 0 auto;
   min-height: 100%;
   background: inherit;
   padding: 0;
 }
-
 header {
   background: #144914;
-  width: 100%;
-  /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
-  */
+  width: 100%;  /*background-image: linear-gradient(to bottom, #FFFFFF, #CF7856 100%);
+    */
   padding: 20px 15px 15px 15px;
   position: fixed;
   z-index: 10;
 }
-
-.navbar-form{
+.navbar-form {
   float: inherit;
 }
-
 #login-buttons {
   display: block;
   float: right;
-  
 }
-
-#firstPage{
+#firstPage {
   background: #E4FDE4;
-
 }
-
-#firstPageColumn1{
+#firstPageColumn1 {
   padding: 0;
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
 }
-
-#firstPageColumn1MODAL{
+#firstPageColumn1MODAL {
   padding: 0;
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
 }
-
-#firstPageColumn1:hover { 
-  -moz-box-shadow: 0 0 40px #144914; 
-  -webkit-box-shadow: 0 0 40px #144914; 
-  box-shadow: 0 0 40px #144914; 
+#firstPageColumn1:hover {
+  -moz-box-shadow: 0 0 40px #144914;
+  -webkit-box-shadow: 0 0 40px #144914;
+  box-shadow: 0 0 40px #144914;
   z-index: 10;
 }
-
-#userProfileDiv{
-  background: #FFFFFF; 
+#userProfileDiv {
+  background: #FFFFFF;
   border-color: #000000;
   border-style: double;
   padding: 15px;
 }
-
-#userPhoto{
+#userPhoto {
   padding: 0;
 }
-
-#cover{ 
-  position:fixed; 
-  top:0; 
-  left:0; 
-  background:rgba(0,0,0,0.6); 
-  z-index:5; 
-  width:100%; 
-  height:100%; 
-  display:none; } 
-
-#popUpHaiku { 
-  height:500px; 
-  width:500px; 
-  margin:0 auto; 
-  position:relative; 
-  z-index:10; 
-  display:none; 
+#cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#popUpHaiku {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  display: none;
   background: url(login.png) 
-  no-repeat; 
-  border:5px double #cccccc; 
-  border-radius:0px; } 
-
-#popUpHaiku:target, #popUpHaiku:target + #cover{ 
-  background: #FFFFFF;
-  display:block; 
-  opacity:2; } 
-
-.cancel { 
-  display:block; 
-  position:absolute; 
-  top:3px; 
-  right:2px; 
-  background:rgb(245,245,245); 
-  color:black; 
-  height:30px; 
-  width:35px; 
-  font-size:30px; 
-  text-decoration:none; 
-  text-align:center; 
-  font-weight:bold; } 
-
-#firstPageColumn2{
-  background: #FFFFFF; 
-  border-color: #000000;
-  border-style: double;
+  no-repeat;
+  border: 5px double #cccccc;
+  border-radius: 0px;
 }
-#firstPageColumn1Row2{
+#popUpHaiku:target, #popUpHaiku:target + #cover {
+  background: #FFFFFF;
+  display: block;
+  opacity: 2;
+}
+.cancel {
+  display: block;
+  position: absolute;
+  top: 3px;
+  right: 2px;
+  background: rgb(245, 245, 245);
+  color: black;
+  height: 30px;
+  width: 35px;
+  font-size: 30px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}
+#firstPageColumn2 {
   background: #FFFFFF;
   border-color: #000000;
   border-style: double;
-  padding: 0;
-  /*margin: auto;
-  */
 }
-
-#firstPageColumn2Row2{
-  background: #FFFFFF; 
+#firstPageColumn1Row2 {
+  background: #FFFFFF;
   border-color: #000000;
   border-style: double;
-  padding: 0;
-  /*margin: auto;
-  */
+  padding: 0;  /*margin: auto;
+    */
 }
-
-#createNewHaikuDiv{
-  background: #FFFFFF; 
+#firstPageColumn2Row2 {
+  background: #FFFFFF;
+  border-color: #000000;
+  border-style: double;
+  padding: 0;  /*margin: auto;
+    */
+}
+#createNewHaikuDiv {
+  background: #FFFFFF;
   border-color: #000000;
   border-style: none;
   padding: 10px;
   margin-top: 10px;
 }
-
 #haikuImage {
   padding: 0;
   padding-left: 0;
   padding-right: 0;
-  }
-
+}
 #haikuText {
   text-align: center;
   padding: 0;
   padding-left: 0;
-  padding-right: 0;
-  /*border-color: #FFFFFF;
-  border-style: dashed;
-  */
+  padding-right: 0;  /*border-color: #FFFFFF;
+      border-style: dashed;
+    */
 }
-
 #likeButton {
   float: left;
   padding: 10px;
 }
-
 #commentButton {
   float: left;
   padding: 10px;
 }
-
 #shareButton {
   float: right;
   padding: 10px;
 }
-
 #footerButtons {
   padding: 1px;
 }
-
-#haikuText p{
+#haikuText p {
   color: gray;
 }
-
-#editDiv{
+#editDiv {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#postBtnDiv{
+#postBtnDiv {
   padding-top: 10px;
 }
-
 .hejsan {
-    /*border-style: solid;
-    */
-}
 
+  /*border-style: solid;
+  */
+}
 #createNewHaikuBtn {
 }
-
 #searchBtn {
 }
-
 #exploreBtn {
 }
-
 #postHaikuBtn {
   float: right;
   padding-top: 10px;
 }
-
 div.feature {
-    position: relative;
+  position: relative;
 }
- 
 div.feature a {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none; /* No underlines on the link */
-    z-index: 10; /* Places the link above everything else in the div */
-    background-color: #FFF; /* Fix to make div clickable in IE */
-    opacity: 0; /* Fix to make div clickable in IE */
-    filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none; /* No underlines on the link */
+  z-index: 10; /* Places the link above everything else in the div */
+  background-color: #FFF; /* Fix to make div clickable in IE */
+  opacity: 0; /* Fix to make div clickable in IE */
+  filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
-
 h1 {
   font-size: 1.5em;
   color: #E4FDE4;
@@ -245,13 +206,11 @@ h1 {
   display: inline-block;
   margin-right: 1em;
 }
-
 form {
   margin-top: 10px;
   margin-bottom: -10px;
   position: relative;
 }
-
 .new-task input {
   box-sizing: border-box;
   padding: 10px 0;
@@ -261,19 +220,9 @@ form {
   padding-right: 80px;
   font-size: 1em;
 }
-
-.new-task input:focus{
+.new-task input:focus {
   outline: 0;
 }
-
-ul {
-  margin: 0;
-  padding-top: 70px;
-  padding-left: 0;
-  padding-right: 0;
-  background: white;
-}
-
 .delete {
   float: right;
   font-weight: bold;
@@ -282,49 +231,39 @@ ul {
   border: none;
   position: relative;
 }
-
 li {
   position: relative;
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
 }
-
 li .text {
   margin-left: 10px;
 }
-
 li.checked {
   color: #888;
 }
-
 li.checked .text {
   text-decoration: line-through;
 }
-
 li.private {
   background: #eee;
   border-color: #ddd;
 }
-
 header .hide-completed {
   float: right;
 }
-
 .toggle-private {
   margin-left: 5px;
 }
-
-@media (max-width: 600px) {
+@media (max-width:600px) {
   li {
     padding: 12px 15px;
   }
-
   .search {
     width: 150px;
     clear: both;
   }
-
   .new-task input {
     padding-bottom: 5px;
   }
