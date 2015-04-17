@@ -62,8 +62,16 @@ Template.firstPage.helpers({
         else{
             return latestHaikus();
         }
-    }
-    ,
+    },
+    textAboutHaikuDisplayed : function(){
+        var haikuDisplayed = Session.get("haiku-display");
+        if(haikuDisplayed === 'most-liked'){
+            return "most liked haikus..."
+        }
+        else{
+            return "latest haikus..."
+        }
+    },
     appname: function() {
         return Session.get('appName');
     }
