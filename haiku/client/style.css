@@ -52,7 +52,10 @@ header {
   border-style: double;
 }
 #firstPageColumn1MODAL {
-
+  padding: 0;
+  background: #fff;
+  border-color: #000;
+  border-style: double;
 }
 #firstPageColumn1:hover {
   -moz-box-shadow: 0 0 40px #144914;
@@ -135,6 +138,13 @@ header {
   margin: 20px auto;
   border-radius: 5px 5px;
 }
+
+#imageAndTextDiv {
+  background: #fff;
+  border-color: #000;
+  border-style: double;
+}
+
 #imageAndTextDiv form {
   margin: 20px 0;
 }
@@ -143,8 +153,8 @@ header {
   width: inherit;
   display: block;
   margin: 10px auto;
-  border-radius: 5px 5px;
-  border: #000 double;
+  /*border-radius: 5px 5px;
+  border: #000 double;*/
 }
 #haikuText {
   text-align: center;
@@ -152,7 +162,7 @@ header {
   padding-left: 0;
   padding-right: 0;
   background: rgba(255,255,255,0.8);
-  border-radius: 5px 5px;
+  /*border-radius: 5px 5px;*/
   margin: 10px 0;
 }
 #likeButton {
