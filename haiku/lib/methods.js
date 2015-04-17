@@ -77,6 +77,7 @@ Meteor.methods({
     } else {
       Comments.insert({
         userId: Meteor.userId(),
+        username: Meteor.user().username,
         haikuId: haikuId,
         text: text
       });
