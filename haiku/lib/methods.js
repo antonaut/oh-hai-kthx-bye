@@ -61,8 +61,10 @@ Meteor.methods({
         userId: Meteor.userId(),
         haikuId: haikuId
       };
+
       var existingLikes = Likes.findOne(likeInfo);
-      if (existingLikes !== null) {
+
+      if (existingLikes) {
         Likes.remove(likeInfo);
       } else {
         Likes.insert(likeInfo);

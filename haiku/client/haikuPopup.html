@@ -40,6 +40,7 @@
                 <div class="modal-footer" id="modal-footer">
                 {{#if isLoggedIn}}
                     <div id="footerButtons">
+                        {{getNumberOfLikers _id}} people like this
                         <!--<button class="btn btn-default" id="likeButton"><span class="glyphicon glyphicon-heart"></span></button>-->
                         <a href="#" id="likeButton" data-id="{{_id}}"><span class="glyphicon glyphicon-heart" style="color:{{colorToUse _id}}"></span></a>
                         <!--<button class="btn btn-default" id="commentButton"><span class="glyphicon glyphicon-pencil"></span></button>-->
