@@ -18,6 +18,28 @@ body {
   font-size: 14px;
 }
 
+/* unvisited link 
+a:link {
+    color: #000000;
+}
+
+ visited link 
+a:visited {
+    color: #00FF00;
+}
+
+ mouse over link 
+a:hover {
+    color: #FF00FF;
+}
+
+ selected link 
+a:active {
+    color: #0000FF;
+}
+*/
+
+
 .container {
   margin: 0 auto;
   min-height: 100%;
@@ -169,15 +191,29 @@ header {
   border-style: dashed;
   */
 }
+#likeAndCommentButtons {
+  float: left;
+}
 
 #likeButton {
   float: left;
   padding: 10px;
 }
-
+.glyphicon.glyphicon-heart {
+    font-size: 2.5em;
+}
+.glyphicon.glyphicon-heart:active{
+  color: #FF0000;
+}
 #commentButton {
   float: left;
   padding: 10px;
+}
+#comment_form_wrapper {
+  float: left;
+}
+.glyphicon.glyphicon-comment {
+    font-size: 2.5em;
 }
 
 #shareButton {
