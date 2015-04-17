@@ -169,6 +169,9 @@ header {
 .glyphicon.glyphicon-comment {
     font-size: 30px;
 }
+#editUserComment {
+  float: left;
+}
 #shareButton {
   float: right;
   padding: 10px;

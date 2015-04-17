@@ -25,8 +25,7 @@ Template.haikuPopup.events({
     },
 
     "click #commentButton" : function(event){    
-            $('#editUserComment').show();
-            alert("hej!");      
+            $('#editUserComment').show();   
     }
 
 
