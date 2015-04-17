@@ -34,8 +34,9 @@ Template.haikuPopup.events({
     },
 
     "click #commentButton" : function(){
-            $('#editUserComment').show();   
+            $('#editUserComment').toggle();   
     },
+
     "click #postHaikuCommentButton" : function(event, template){
         var commentToPost = template.find("#userComment").value;
         var haikuId = event.currentTarget.dataset.id;
