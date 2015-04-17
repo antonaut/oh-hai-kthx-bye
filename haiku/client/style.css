@@ -113,29 +113,11 @@ header {
   text-align: center;
   font-weight: bold;
 }
-#firstPageColumn2 {
-  background: #fff;
-  border-color: #000;
-  border-style: double;
-}
-#firstPageColumn1Row2 {
-  background: #fff;
-  border-color: #000;
-  border-style: double;
-  padding: 0;
-}
-#firstPageColumn2Row2 {
-  background: #fff;
-  border-color: #000;
-  border-style: double;
-  padding: 0;
-}
+
 #createNewHaiku {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0);
   border-color: #000;
   border-style: none;
-  padding: 20px;
-  margin: 20px auto;
   border-radius: 5px 5px;
 }
 
@@ -143,16 +125,31 @@ header {
   background: #fff;
   border-color: #000;
   border-style: double;
+  overflow: hidden;
 }
 
 #imageAndTextDiv form {
-  margin: 20px 0;
+  margin: 20% 0;
+}
+
+#createNewHaikuImage {
+  padding: 0;
+}
+#createNewHaikuImage img {
+  padding: 0;
+  height: 450px;
+  width: 450px;
+}
+
+#haikuImage {
+  padding: 0;
 }
 
 #haikuImage img {
-  width: inherit;
+  width: 100%;
+  height: auto;
   display: block;
-  margin: 10px auto;
+  margin: 0;
   /*border-radius: 5px 5px;
   border: #000 double;*/
 }
@@ -163,7 +160,7 @@ header {
   padding-right: 0;
   background: rgba(255,255,255,0.8);
   /*border-radius: 5px 5px;*/
-  margin: 10px 0;
+  margin: 0;
 }
 #likeButton {
   float: left;
@@ -199,6 +196,7 @@ header {
 }
 #postBtnDiv {
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 #postHaikuBtn {
   float: right;
