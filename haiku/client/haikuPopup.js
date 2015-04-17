@@ -2,6 +2,11 @@
  * Created by Fredrik on 2015-04-16.
  */
 
+function getNumberOfLikers(haikuId){
+    var result = Likes.find({haikuId: haikuId});
+    return result.count();
+}
+
 Template.haikuPopup.helpers({
     "colorToUse" : function(haikuId) {
         var result = Likes.findOne({userId: Meteor.userId(), haikuId: haikuId});
@@ -15,8 +20,10 @@ Template.haikuPopup.helpers({
         return liked ? "blue" : "black";*/
     },
     "getNumberOfLikers" : function (haikuId) {
-        var result = Likes.find({haikuId: haikuId});
-        return result.count();
+        return getNumberOfLikers(haikuId);
+    },
+    "hasMoreThanOneLiker" : function(haikuId){
+        return getNumberOfLikers(haikuId)>0;
     }
 });
 
