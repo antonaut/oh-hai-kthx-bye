@@ -3,7 +3,7 @@
   <header class="navbar navbar-fixed-top">
     <div class="container-fluid">
       {{> loginButtons}}
-      <a href=".">
+      <a id="app-icon" href=".">
         <h1>
           <b>{{appname}}</b>
         </h1>
@@ -16,8 +16,7 @@
           Explore <span class="caret"></span>
         </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Top 10</a></li>
-            <li><a href="#">Most liked</a></li>
+            <li><a href="" id="most-liked-haikus">Most liked</a></li>
             <li><a href="#">Most shared</a></li>
           </ul>
       </div>

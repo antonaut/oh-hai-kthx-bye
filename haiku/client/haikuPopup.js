@@ -26,8 +26,9 @@ Template.haikuPopup.events({
         Meteor.call('addRemoveLike',haikuId);
     },
 
-    "click #commentButton" : function(event){    
-            $('#editUserComment').show();
+    "click #commentButton" : function(event){
+        $('#editUserComment').show();
+
     }
 
 
