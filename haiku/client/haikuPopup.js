@@ -22,5 +22,12 @@ Template.haikuPopup.events({
         cursor.forEach(function(doc){
             console.log(doc._id);
         });
+    },
+
+    "click #commentButton" : function(event){    
+            $('#editUserComment').show();
+            alert("hej!");      
     }
+
+
 });
