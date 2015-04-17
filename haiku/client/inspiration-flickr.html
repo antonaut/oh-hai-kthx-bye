@@ -4,12 +4,16 @@
             <input type="text" name="needle">
             <input class="btn" type="submit" value="Search">
         </form>
-        <ul class="container">
-        {{#each flickrPhotos}}
-            <li class="col-md-4">{{>flickrSquare}}</li>
-        {{/each}}
-        </ul>
+        
     </div>
+</template>
+
+<template name="inspirationPhotos">
+    {{#each flickrPhotos}}
+        <div class="inspirationPhoto">
+        {{>flickrLargeSquare}}
+        </div>
+    {{/each}}
 </template>
 
 <template name="flickrLargeSquare">
