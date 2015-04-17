@@ -159,9 +159,15 @@ header {
   float: left;
   padding: 10px;
 }
+.glyphicon.glyphicon-heart {
+    font-size: 30px;
+}
 #commentButton {
   float: left;
   padding: 10px;
+}
+.glyphicon.glyphicon-comment {
+    font-size: 30px;
 }
 #shareButton {
   float: right;
