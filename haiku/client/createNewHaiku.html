@@ -3,7 +3,7 @@
 
   <!-- CREATE NEW HAIKU TEMPLATE -->
 
-  <div class ="container" id="createNewHaiku">
+  <div class ="col-lg-10 col-lg-offset-1" id="createNewHaiku">
 
      <!-- EDIT HAIKU DIV -->
     <div id="editDiv">
@@ -48,23 +48,20 @@
     <!--!!!!!!!!!!!!!!!!!!!!!!!!!--> 
 
     <!-- HAIKUIMAGE and -TEXT DIV-->
-    <div id="imageAndTextDiv">
-
-      <!--HAIKU TEXT-->
-      <div class="col-xs-12 col-md-6" id="haikuText">
+    <div id="imageAndTextDiv" class="col-lg-12">
+      
+      <div class="col-lg-6 col-md-6 col-xs-12" id="haikuText">
         <form>
           <p><i>5 syllables:</i></p><input type="text" id="row1" value="" size="40">
           <p><i>7 syllables:</i></p><input type="text" id="row2" value="" size="40">
           <p><i>5 syllables:</i></p><input type="text" id="row3" value="" size="40">
-        <!--<input type="text" name="firstname" value="Haiku text here">-->
-        <!--<input type="submit" value="Submit">-->
         </form>
-      </div> 
+      </div>
 
-      <!--HAIKU IMAGE-->
-      <div class="col-xs-12 col-md-6" id="haikuImage">
+      <div class="col-lg-6 col-md-6 col-xs-12" id="createNewHaikuImage">
           <img src="http://www.magic-mural-factory.com/Pictures/Articles/Tree%20Mural/Wallpaper-tree.jpg"/>
       </div>
+
     </div>
     <!--!!!!!!!!!!!!!!!!!!!!!!!!!--> 
 
@@ -72,6 +69,7 @@
     <div class="col-lg-2 col-lg-offset-9" id="postBtnDiv">
       <button class="btn btn-default btn-lg" id="postHaikuBtn" type="submit">Post</button>
     </div>
+    <div class="clearfix"></div>
     <!-- -->
 
   </div>

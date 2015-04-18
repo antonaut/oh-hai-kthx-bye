@@ -5,3 +5,5 @@ availableTextColors = [{name:"Black",code:"#000000"},
 					   
 availableTextFonts = [{name:"Times New Roman",filePath:"fonts/TimesNewRoman.ttf"},
 					  {name:"Garamond",filePath:"fonts/Garamond.ttf"}];
+
+maxHaikusToShowOnEachPage = 100;

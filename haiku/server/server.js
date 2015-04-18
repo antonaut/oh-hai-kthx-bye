@@ -1,4 +1,6 @@
-Meteor.startup(function() {});
+Meteor.startup(function() {
+});
+
 
 Meteor.publish("haikus", function() {
 	return Haikus.find({});
@@ -12,4 +14,4 @@ Meteor.publish("likes", function() {
 
 Meteor.publish('flickr', function(){
 	return Flickr.find();
-})
+});
