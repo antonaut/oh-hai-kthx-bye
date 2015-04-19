@@ -29,8 +29,12 @@
 
     if (arrayOfHaikus.length < maxHaikusToShowOnEachPage) {
         Haikus.find().forEach(function (haiku) {
+            var lengthOfHaikuList = haikusToDisplay.length;
+            if(lengthOfHaikuList >= maxHaikusToShowOnEachPage){
+                return false;
+            }
+
             if (!haikusWithLikes[haiku._id]) {
-                var lengthOfHaikuList = haikusToDisplay.length;
                 haiku["toTheLeft"] = lengthOfHaikuList % 2 === 0;
                 haiku["imagesSecond"] = lengthOfHaikuList % 4 >= 2;
                 haikusToDisplay.push(haiku);
@@ -74,13 +78,5 @@ Template.firstPage.helpers({
     },
     appname: function() {
         return Session.get('appName');
-    }
-});
-
-Template.firstPage.events({
-    "click .haikuDiv" : function(event){
-        var id = event.currentTarget.id;
-        var haikuData = Haikus.findOne({_id:id});
-        Modal.show('haikuPopup',haikuData);
     }
 });

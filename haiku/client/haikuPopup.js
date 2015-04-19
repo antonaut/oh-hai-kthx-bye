@@ -2,10 +2,10 @@
  * Created by Fredrik on 2015-04-16.
  */
 
-function getNumberOfLikers(haikuId){
+var getNumberOfLikers = function(haikuId){
     var result = Likes.find({haikuId: haikuId});
     return result.count();
-}
+};
 
 Template.haikuPopup.helpers({
     "colorToUse" : function(haikuId) {
@@ -28,9 +28,8 @@ Template.haikuPopup.helpers({
 });
 
 Template.haikuPopup.events({
-    "click #likeButton" : function(event){
-        var haikuId = event.currentTarget.dataset.id;
-        Meteor.call('addRemoveLike',haikuId);
+    "click #likeButton" : function(){
+        Meteor.call('addRemoveLike',this._id);
     },
 
     "click #commentButton" : function(){
@@ -39,7 +38,7 @@ Template.haikuPopup.events({
 
     "click #postHaikuCommentButton" : function(event, template){
         var commentToPost = template.find("#userComment").value;
-        var haikuId = event.currentTarget.dataset.id;
+        var haikuId = this._id;
         Meteor.call('addComment',haikuId,commentToPost);
     }
 

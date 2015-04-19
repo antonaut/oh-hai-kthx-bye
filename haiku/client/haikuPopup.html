@@ -47,17 +47,17 @@
                     {{#if isLoggedIn}}
                         <div id="footerButtons">
                             <!--<button class="btn btn-default" id="likeButton"><span class="glyphicon glyphicon-heart"></span></button>-->
-                            <a href="#" id="likeButton" data-id="{{_id}}"><span class="glyphicon glyphicon-heart" style="color:{{colorToUse _id}}"></span></a>
+                            <a href="#" id="likeButton"><span class="glyphicon glyphicon-heart" style="color:{{colorToUse _id}}"></span></a>
                             <!--<button class="btn btn-default" id="commentButton"><span class="glyphicon glyphicon-pencil"></span></button>-->
-                            <a href="#" id="commentButton"  data-id="{{_id}}"><span class="glyphicon glyphicon-comment"></span></a>
-                            <button class="btn btn-default" id="shareButton" data-id="{{id}}"><span class="glyphicon glyphicon-share"></span>Share</button>
+                            <a href="#" id="commentButton"><span class="glyphicon glyphicon-comment"></span></a>
+                            <button class="btn btn-default" id="shareButton"><span class="glyphicon glyphicon-share"></span>Share</button>
                         </div>
 
                         <!-- Kommentarsfält -->
                         <div id="editUserComment" style="display: none;">
                             <form>
                               <input type="text" id="userComment" value="" size="40">
-                            </form><button class="btn" id="postHaikuCommentButton" data-id="{{_id}}">Post!</button>
+                            </form><button class="btn" id="postHaikuCommentButton">Post!</button>
                         </div>
 
                     {{/if}}
