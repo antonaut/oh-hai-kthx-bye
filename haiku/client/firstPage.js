@@ -32,11 +32,12 @@
             if (!haikusWithLikes[haiku._id]) {
                 var lengthOfHaikuList = haikusToDisplay.length;
                 haiku["toTheLeft"] = lengthOfHaikuList % 2 === 0;
-                currHaiku["imagesSecond"] = lengthOfHaikuList % 4 >= 2;
+                haiku["imagesSecond"] = lengthOfHaikuList % 4 >= 2;
                 haikusToDisplay.push(haiku);
             }
         });
     }
+    console.log(haikusToDisplay);
 
     return haikusToDisplay;
 }
