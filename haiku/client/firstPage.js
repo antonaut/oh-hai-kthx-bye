@@ -1,7 +1,7 @@
 /**
  * Created by Fredrik on 2015-04-16.
  */
- function mostLikedHaikus() {
+ var mostLikedHaikus = function(){
 
     var likes = Likes.find().fetch();
     var likesByHaiku = _.groupBy(_.pluck(likes, 'haikuId'));
@@ -37,18 +37,17 @@
             }
         });
     }
-    console.log(haikusToDisplay);
 
     return haikusToDisplay;
-}
+};
 
-function latestHaikus() {
+var latestHaikus = function() {
     return Haikus.find({}, {sort: {createdAt: -1}, limit: maxHaikusToShowOnEachPage}).map(function (document, index) {
         document.toTheLeft = index % 2 === 0;
         document.imagesSecond = index % 4 >= 2;
         return document;
     });
-}
+};
 
 
 Template.firstPage.helpers({
