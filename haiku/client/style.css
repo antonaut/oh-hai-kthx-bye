@@ -94,6 +94,7 @@ header {
   border: 5px double #cccccc;
   border-radius: 0px;
 }
+
 #popUpHaiku:target, #popUpHaiku:target + #cover {
   background: #fff;
   display: block;
@@ -112,6 +113,16 @@ header {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
+}
+
+#commentArea {
+  float: left;
+  clear:both;
+  text-align: left;
+}
+
+.comment {
+  margin-top: 5px;
 }
 
 #createNewHaiku {

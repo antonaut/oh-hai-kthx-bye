@@ -19,11 +19,16 @@ Template.haikuPopup.helpers({
         var liked = result.count() > 0;
         return liked ? "blue" : "black";*/
     },
-    "getNumberOfLikers" : function (haikuId) {
-        return getNumberOfLikers(haikuId);
+    "getNumberOfLikers" : function () {
+        return getNumberOfLikers(this._id);
     },
-    "hasMoreThanOneLiker" : function(haikuId){
-        return getNumberOfLikers(haikuId)>0;
+    "hasMoreThanOneLiker" : function(){
+        return getNumberOfLikers(this._id)>0;
+    },
+    "getComments" : function(){
+        var comments = Comments.find({haikuId: this._id});
+        return comments
+
     }
 });
 

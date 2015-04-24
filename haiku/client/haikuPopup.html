@@ -38,9 +38,9 @@
 
 
                 <div class="modal-footer" id="modal-footer">
-                    {{#if hasMoreThanOneLiker _id}}
+                    {{#if hasMoreThanOneLiker}}
                         <div class="pull-left">
-                            {{getNumberOfLikers _id}} people like this
+                            {{getNumberOfLikers}} people like this
                         </div>
                         <br />
                     {{/if}}
@@ -61,6 +61,13 @@
                         </div>
 
                     {{/if}}
+                    <div id="commentArea">
+                        {{#each getComments}}
+                            <div class="comment">
+                                {{username}} - {{text}}
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
 
             </div>
