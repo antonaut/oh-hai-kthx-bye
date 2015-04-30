@@ -63,11 +63,17 @@ header {
   box-shadow: 0 0 40px #144914;
   z-index: 10;
 }
+#userProfilePage{
+  padding: 0;
+}
 #userProfileDiv {
   background: #fff;
   border-color: #000;
   border-style: double;
-  padding: 15px;
+  padding: 0px;
+}
+#userDescription{
+  padding: 0;
 }
 #userPhoto {
   padding: 0;
@@ -178,6 +184,8 @@ header {
 }
 #editUserComment {
   float: left;
+  margin-left: 30px;
+  padding-top: 5px;
 }
 #shareButton {
   float: right;
