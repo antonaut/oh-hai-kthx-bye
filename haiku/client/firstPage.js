@@ -1,7 +1,7 @@
 /**
  * Created by Fredrik on 2015-04-16.
  */
- function mostLikedHaikus() {
+ var mostLikedHaikus = function(){
 
     var likes = Likes.find().fetch();
     var likesByHaiku = _.groupBy(_.pluck(likes, 'haikuId'));
@@ -29,25 +29,29 @@
 
     if (arrayOfHaikus.length < maxHaikusToShowOnEachPage) {
         Haikus.find().forEach(function (haiku) {
+            var lengthOfHaikuList = haikusToDisplay.length;
+            if(lengthOfHaikuList >= maxHaikusToShowOnEachPage){
+                return false;
+            }
+
             if (!haikusWithLikes[haiku._id]) {
-                var lengthOfHaikuList = haikusToDisplay.length;
                 haiku["toTheLeft"] = lengthOfHaikuList % 2 === 0;
-                currHaiku["imagesSecond"] = lengthOfHaikuList % 4 >= 2;
+                haiku["imagesSecond"] = lengthOfHaikuList % 4 >= 2;
                 haikusToDisplay.push(haiku);
             }
         });
     }
 
     return haikusToDisplay;
-}
+};
 
-function latestHaikus() {
+var latestHaikus = function() {
     return Haikus.find({}, {sort: {createdAt: -1}, limit: maxHaikusToShowOnEachPage}).map(function (document, index) {
         document.toTheLeft = index % 2 === 0;
         document.imagesSecond = index % 4 >= 2;
         return document;
     });
-}
+};
 
 
 Template.firstPage.helpers({
@@ -74,13 +78,5 @@ Template.firstPage.helpers({
     },
     appname: function() {
         return Session.get('appName');
-    }
-});
-
-Template.firstPage.events({
-    "click .haikuDiv" : function(event){
-        var id = event.currentTarget.id;
-        var haikuData = Haikus.findOne({_id:id});
-        Modal.show('haikuPopup',haikuData);
     }
 });
