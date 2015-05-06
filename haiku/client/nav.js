@@ -23,3 +23,10 @@ Template.nav.events({
         Session.set("searchTerm",searchString);
     }
 });
+
+
+Template.nav.rendered = function(){
+    console.log($('.login-link-text'));
+    $('.login-link-text').addClass('btn');
+
+};
