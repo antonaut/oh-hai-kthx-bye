@@ -15,3 +15,8 @@ Template.registerHelper("isLoggedIn",function(){
 Accounts.ui.config({
   passwordSignupFields: "USERNAME_ONLY"
 });
+
+ShareIt.configure({
+
+
+});

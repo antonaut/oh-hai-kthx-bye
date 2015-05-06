@@ -4,6 +4,7 @@
 Template.haiku.events({
     "click .haikuDiv" : function(){
         var id = this._id;
+
         var haikuData = Haikus.findOne({_id:id});
         Modal.show('haikuPopup',haikuData);
     }

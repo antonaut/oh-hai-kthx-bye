@@ -53,12 +53,28 @@ var latestHaikus = function() {
     });
 };
 
+var searchHaikus = function(searchWord) {
+    return Haikus.find({$or : [
+        {poemRow1:{$regex:searchWord} },
+        {poemRow2:{$regex:searchWord} },
+        {poemRow3:{$regex:searchWord} } ]
+    }).map(function (document, index) {
+        document.toTheLeft = index % 2 === 0;
+        document.imagesSecond = index % 4 >= 2;
+        return document;
+    });
+};
+
 
 Template.firstPage.helpers({
     getPopupTemplate: function(){
         return
     },
     getHaikus :function(){
+        var searchTerm = Session.get("searchTerm");
+        if(searchTerm){
+            return searchHaikus(searchTerm);
+        }
         var haikuToDisplay = Session.get("haiku-display")
         if(haikuToDisplay === 'most-liked'){
             return mostLikedHaikus();
@@ -70,13 +86,30 @@ Template.firstPage.helpers({
     textAboutHaikuDisplayed : function(){
         var haikuDisplayed = Session.get("haiku-display");
         if(haikuDisplayed === 'most-liked'){
-            return "most liked haikus..."
+            return "most liked haikus...";
         }
         else{
-            return "latest haikus..."
+            return "latest haikus...";
         }
     },
     appname: function() {
         return Session.get('appName');
+    }
+});
+
+Template.firstPage.events({
+   "click #app-icon" : function(){
+       Session.set("searchTerm",null);
+       $("#searchString").val("");
+   }
+});
+
+Meteor.subscribe("haikus", function() {
+    Session.set("searchTerm",null);
+    var redirectHaiku = Session.get("redirectHaiku");
+    if(redirectHaiku){
+        Session.set("redirectHaiku",null);
+        var haikuData = Haikus.findOne({_id:redirectHaiku});
+        Modal.show('haikuPopup',haikuData);
     }
 });
