@@ -70,3 +70,8 @@ Template.flickrSquare.helpers({
 	}
 });
 
+Template.flickrPhoto.helpers({
+	url: function(farm, server, id, secret) {
+		return url(farm, server, id, secret, '');
+	},
+})
