@@ -162,6 +162,24 @@ header {
   padding: 0;
 }
 
+#login-buttons .login-button, .accounts-dialog .login-button {
+  background: white;
+  font-family:  'Coming Soon', cursive, sans-serif;
+  color: #000000;
+  border-color: #144914;
+}
+#login-buttons .login-button:hover, .accounts-dialog .login-button:hover {
+  background: #144914;
+  color: #FFFFFF;
+}
+#login-buttons a {
+  color: #000000;
+}
+
+#login-buttons #login-name-link {
+  color: #FFFFFF;
+}
+
 #haikuImage img {
   width: 100%;
   height: auto;

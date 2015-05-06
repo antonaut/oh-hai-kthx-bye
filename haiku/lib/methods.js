@@ -104,5 +104,13 @@ Meteor.methods({
         _id: commentId
       });
     }
+  },
+  userDescription: function(userID, userDescriptionInput){
+    Users.update(
+      {_id: userID},
+      {userDescription: userDescription}
+      );
   }
+
+
 });
