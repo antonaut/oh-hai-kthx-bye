@@ -7,6 +7,26 @@ var url = function(farm, server, id, secret, size) {
 	return 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
 };
 
+flickrPhotosInSession = function() {
+	var flickrPhotos = Session.get('flickrResults');
+	console.log('CALLED! photos: ', flickrPhotos);
+	if (flickrPhotos.photos && flickrPhotos.photos.photo) {
+		return flickrPhotos.photos.photo;
+	} else {
+		return [];
+	}
+};
+
+randomFlickrPhoto = function() {
+	var photos = flickrPhotosInSession();
+	return photos[Math.floor(Math.random()*(photos.length-1))];
+};
+
+urlFromFlickrPhoto = function(photo) {
+	return url(photo.farm, photo.server, photo.id, photo.secret, '');
+};
+
+
 Session.set('flickrResults', {
 	photos: {
 		photo: [/*{
@@ -33,15 +53,7 @@ Template.flickrtest.events({
 });
 
 Template.inspirationPhotos.helpers({
-	flickrPhotos: function() {
-		var flickrPhotos = Session.get('flickrResults');
-		console.log('CALLED! photos: ', flickrPhotos);
-		if (flickrPhotos.photos && flickrPhotos.photos.photo) {
-			return flickrPhotos.photos.photo;
-		} else {
-			return [];
-		}
-	},
+	flickrPhotos: flickrPhotosInSession,
 	// Uses the url api
 	// https://www.flickr.com/services/api/misc.urls.html
 });

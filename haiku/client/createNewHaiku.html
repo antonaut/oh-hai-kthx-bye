@@ -33,7 +33,7 @@
 
         <!-- REFRESH IMAGE BUTTON -->
          <div class="btn-group">
-            <button type="button" class="btn btn-default">
+            <button type="button" id="refresh-image" class="btn btn-default">
               <span class="glyphicon glyphicon-refresh"></span>
             </button>
         </div>
@@ -59,7 +59,9 @@
       </div>
 
       <div class="col-lg-6 col-md-6 col-xs-12" id="createNewHaikuImage">
-          <img src="http://www.magic-mural-factory.com/Pictures/Articles/Tree%20Mural/Wallpaper-tree.jpg"/>
+        {{#with haikuImage}}
+          {{> flickrLargeSquare}}
+        {{/with}}
       </div>
 
     </div>

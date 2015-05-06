@@ -1,3 +1,16 @@
+
+Session.set('haikuImage', {
+    id: '16287638134',
+    owner: '130080108@N02',
+    secret: 'd3ff2ffc58',
+    server: '7281',
+    farm: 8,
+    title: 'Landscape 5 By: Anton Antonov',
+    ispublic: 1,
+    isfriend: 0,
+    isfamily: 0
+});
+
 var imgSearchSpawn = function(event, template) {
     var lastSearchTime = Session.get('lastImageSearch');
 
@@ -36,7 +49,7 @@ Template.createNewHaiku.events({
         }
         console.log(theFontToUse);
 
-        var theColorToUse
+        var theColorToUse;
         if (typeof chosenColor === 'undefined') {
             theColorToUse = availableTextColors[0].code;
         } else {
@@ -47,13 +60,18 @@ Template.createNewHaiku.events({
                 }
             }
         }
-        Meteor.call('addHaiku', row1, row2, row3, theFontToUse, theColorToUse, "http://vignette3.wikia.nocookie.net/jadensadventures/images/5/54/Pokemon-Ash-s-Pikachu-Riley-Sir-Aaron-s-Lucarios-pokemon-guys-10262907-563-579.jpg/revision/latest?cb=20120902022940");
+        var theImageToUse = urlFromFlickrPhoto(Session.get('haikuImage'));
+        Meteor.call('addHaiku', row1, row2, row3, theFontToUse, theColorToUse, theImageToUse);
     },
     "click #font-chooser li a": function(event) {
         chosenFont = event.target.innerHTML;
     },
     "click #color-chooser li a": function(event) {
         chosenColor = event.target.innerHTML;
+    },
+    "click #refresh-image": function(event) {
+        console.log('Refreshing image.');
+        Session.set('haikuImage', randomFlickrPhoto());
     }
 });
 
@@ -63,7 +81,7 @@ Template.createNewHaiku.helpers({
         var fontNames = [];
         for (var i = 0; i < availableTextFonts.length; i++) {
             fontNames.push(availableTextFonts[i].name);
-        }
+        }       
         return fontNames;
     },
     getAvailableColorNames: function() {
@@ -72,5 +90,10 @@ Template.createNewHaiku.helpers({
             colorNames.push(availableTextColors[i].name)
         }
         return colorNames;
+    },
+    haikuImage: function() {
+        var i = Session.get('haikuImage');
+        console.log('Image: ',i);
+        return i;
     }
 });
