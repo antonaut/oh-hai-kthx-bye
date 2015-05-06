@@ -26,7 +26,5 @@ Template.nav.events({
 
 
 Template.nav.rendered = function(){
-    console.log($('.login-link-text'));
     $('.login-link-text').addClass('btn');
-
 };
