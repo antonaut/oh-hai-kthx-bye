@@ -6,7 +6,7 @@ Meteor.methods({
     }
 
     if (!(typeof poemRow1 === "string" && typeof poemRow2 === "string" && typeof poemRow3 === "string" && typeof imageSrc === "string")) {
-      throw new Meteor.Error("incorrect-input1")
+      throw new Meteor.Error("incorrect-input")
     }
 
     //Checks that the color is allowed
@@ -18,7 +18,7 @@ Meteor.methods({
     }
 
     if (!colorAllowed) {
-      throw new Meteor.Error("incorrect-input2 " + textColor);
+      throw new Meteor.Error("incorrect-input");
     }
 
     //Checks that the font is allowed
@@ -29,7 +29,7 @@ Meteor.methods({
       }
     }
     if (!fontAllowed) {
-      throw new Meteor.Error("incorrect-input3");
+      throw new Meteor.Error("incorrect-input");
     } else {
       //Insert into collection
       Haikus.insert({
@@ -50,7 +50,9 @@ Meteor.methods({
     if (haiku.owner !== Meteor.userId() || !Meteor.user()) {
       throw new Meteor.Error("not-authorized");
     } else {
-      Haikus.remove(haikuId);
+      Likes.remove({haikuId: haikuId});
+      Comments.remove({haikuId: haikuId});
+      Haikus.remove({_id: haikuId});
     }
   },
   addRemoveLike: function(haikuId) {
@@ -74,13 +76,19 @@ Meteor.methods({
   addComment: function(haikuId, text) {
     if (!Meteor.user()) {
       throw new Meteor.Error("not-authorized");
-    } else {
-      Comments.insert({
-        userId: Meteor.userId(),
-        username: Meteor.user().username,
-        haikuId: haikuId,
-        text: text
-      });
+    }
+    else {
+      if (!(typeof text === "string")) {
+        throw new Meteor.Error("incorrect-input");
+      }
+      else {
+        Comments.insert({
+          userId: Meteor.userId(),
+          username: Meteor.user().username,
+          haikuId: haikuId,
+          text: text
+        });
+      }
     }
   },
   removeComment: function(commentId) {
@@ -96,5 +104,13 @@ Meteor.methods({
         _id: commentId
       });
     }
+  },
+  userDescription: function(userID, userDescriptionInput){
+    Users.update(
+      {_id: userID},
+      {userDescription: userDescription}
+      );
   }
+
+
 });

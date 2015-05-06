@@ -18,3 +18,10 @@ Template.nav.events({
         Session.set("haiku-display","latest");
     }
 });
+
+
+Template.nav.rendered = function(){
+    console.log($('.login-link-text'));
+    $('.login-link-text').addClass('btn');
+
+};
