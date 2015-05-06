@@ -14,13 +14,13 @@ Session.set('haikuImage', {
 var imgSearchSpawn = function(event, template) {
     var lastSearchTime = Session.get('lastImageSearch');
 
-    if (new Date() - lastSearchTime > 8000) {
+    if (new Date() - lastSearchTime > 5000) {
         var words = template.find("#row1").value.split(' ').concat(
             template.find("#row2").value.split(' ')).concat(
             template.find("#row3").value.split(' '));
-        console.log(words);
         var needle = words[Math.floor(Math.random() * words.length)];
         console.log('Searching for inspiration. Term: ', needle);
+        
         flickrSearch(needle);
         Session.set('lastImageSearch', new Date());
     }

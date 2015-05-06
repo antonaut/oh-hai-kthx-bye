@@ -46,7 +46,7 @@ if (Meteor.settings['flickr_api_key'] && Meteor.settings['flickr_api_secret']) {
 	Meteor.methods({
 		'flickrSearchPhotos': function(text) {
 			console.log('searching for:', text);
-			if (!text) {
+			if (text.length < 2) {
 				throw new Meteor.Error('photo-search', 'Unable to find photos with text: ', text);
 			}
 			var response = flickr.call('photos.search', {
