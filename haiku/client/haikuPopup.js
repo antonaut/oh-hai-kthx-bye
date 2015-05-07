@@ -28,7 +28,6 @@ Template.haikuPopup.helpers({
     "getComments" : function(){
         var comments = Comments.find({haikuId: this._id});
         return comments
-
     }
 });
 
@@ -42,6 +41,7 @@ Template.haikuPopup.events({
     },
 
     "click #postHaikuCommentButton" : function(event, template){
+        event.preventDefault();
         var commentToPost = template.find("#userComment").value;
         var haikuId = this._id;
         Meteor.call('addComment',haikuId,commentToPost);

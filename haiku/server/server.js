@@ -15,3 +15,10 @@ Meteor.publish("likes", function() {
 Meteor.publish('flickr', function(){
 	return Flickr.find();
 });
+
+
+Meteor.users.deny({
+	update: function() {
+		return true;
+	}
+});

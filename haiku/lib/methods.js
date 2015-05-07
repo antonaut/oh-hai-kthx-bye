@@ -1,3 +1,16 @@
+var getUsername = function(){
+    console.log("getUsername");
+    if(Meteor.user().username){
+        return Meteor.user().username
+    }
+    else if(Meteor.user().profile.name){
+        return Meteor.user().profile.name;
+    }
+    else{
+        return Meteor.userId();
+    }
+};
+
 Meteor.methods({
   addHaiku: function(poemRow1, poemRow2, poemRow3, textFont, textColor, imageSrc) {
     // Make sure the user is logged in before inserting a task
@@ -24,10 +37,11 @@ Meteor.methods({
     //Checks that the font is allowed
     var fontAllowed = false;
     for (var indexFont = 0; indexFont < availableTextFonts.length; indexFont++) {
-      if (availableTextFonts[indexFont].filePath === textFont) {
-        fontAllowed = true;
-      }
+        if (availableTextFonts[indexFont].filePath === textFont) {
+            fontAllowed = true;
+        }
     }
+
     if (!fontAllowed) {
       throw new Meteor.Error("incorrect-input");
     } else {
@@ -43,7 +57,7 @@ Meteor.methods({
         shares: 0,
         likes: 0,
         owner: Meteor.userId(),
-        username: Meteor.user().username
+        username: getUsername()
       });
     }
   },
@@ -86,7 +100,7 @@ Meteor.methods({
       else {
         Comments.insert({
           userId: Meteor.userId(),
-          username: Meteor.user().username,
+          username: getUsername(),
           haikuId: haikuId,
           text: text
         });
@@ -112,8 +126,13 @@ Meteor.methods({
         throw new Meteor.Error("not-authorized");
     }
     Users.update(
-        {_id: Meteor.userId()},
-        {userDescription: userDescriptionInput}
+        {
+            _id: Meteor.userId()},
+        {
+            $set: {
+                userDescription: userDescriptionInput
+            }
+        }
       );
   }
 
