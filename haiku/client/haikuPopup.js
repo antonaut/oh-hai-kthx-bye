@@ -42,9 +42,11 @@ Template.haikuPopup.events({
     },
 
     "click #postHaikuCommentButton" : function(event, template){
+        if(template.find("#userComment").value!=""){
         var commentToPost = template.find("#userComment").value;
         var haikuId = this._id;
         Meteor.call('addComment',haikuId,commentToPost);
+        }
     }
 
 

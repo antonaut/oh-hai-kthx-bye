@@ -48,13 +48,13 @@ header {
 #firstPageColumn1 {
   padding: 0;
   background: #fff;
-  border-color: #000;
+  border-color: #144914;
   border-style: double;
 }
 #firstPageColumn1MODAL {
   padding: 0;
   background: #fff;
-  border-color: #000;
+  border-color: #144914;
   border-style: double;
 }
 #firstPageColumn1:hover {
@@ -64,13 +64,17 @@ header {
   z-index: 10;
 }
 .modal-footer {
+  background: #FFFFFF;
+}
+.modal-body{
+  background: #FFFFFF;
 }
 #userProfilePage{
   padding: 0;
 }
 #userProfileDiv {
   background: #fff;
-  border-color: #000;
+  border-color: #144914;
   border-style: double;
   padding: 0px;
 }
@@ -124,6 +128,7 @@ header {
 }
 
 #commentArea {
+  background: #FFFFFF;
   max-height: 70px;
   width: 100%;
   overflow-y: auto;
@@ -138,14 +143,14 @@ header {
 
 #createNewHaiku {
   background: rgba(255,255,255,0);
-  border-color: #000;
+  border-color: #144914;
   border-style: none;
   border-radius: 5px 5px;
 }
 
 #imageAndTextDiv {
   background: #fff;
-  border-color: #000;
+  border-color: #144914;
   border-style: double;
   overflow: hidden;
 }
@@ -185,9 +190,7 @@ header {
   color: #FFFFFF;
 }
 
-.sharer-0 label span {
-  font-family:  'Coming Soon', cursive, sans-serif;
-}
+
 
 #haikuImage img {
   width: 100%;
@@ -218,6 +221,10 @@ header {
   padding-right: 10px;
   display:inline
 }
+
+#commentButton a {
+  color: #000000;
+}
 .glyphicon.glyphicon-comment {
     font-size: 30px;
 }
@@ -239,6 +246,23 @@ header {
 }
 #shareButton {
   float: right;
+  background: #FFFFFF;
+}
+
+.sharer-0 label span {
+  font-family:  'Coming Soon', cursive, sans-serif;
+}
+
+.sharer-0 label {
+  background: #FFFFFF;
+  /*border-style: 1px solid;
+  border-color: #adadad;
+  */
+  border-radius: 3px; 
+  color: #333;
+}
+.sharer-0 label:hover {
+  background: #e6e6e6;
 }
 #footerButtons {
   display: inline;
