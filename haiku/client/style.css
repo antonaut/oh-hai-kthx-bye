@@ -255,11 +255,6 @@ header {
 
 .sharer-0 label {
   background: #FFFFFF;
-  /*border-style: 1px solid;
-  border-color: #adadad;
-  */
-  border-radius: 3px; 
-  color: #333;
 }
 .sharer-0 label:hover {
   background: #e6e6e6;

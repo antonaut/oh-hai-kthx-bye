@@ -38,7 +38,7 @@ Template.haikuPopup.events({
     },
 
     "click #commentButton" : function(){
-            $('#editUserComment').toggle();   
+            $('#editUserComment').slideToggle("fast");   
     },
 
     "click #postHaikuCommentButton" : function(event, template){
