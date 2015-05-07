@@ -6,8 +6,9 @@ Template.userProfile.events({
         $('#userDescriptionText').html(userDescriptionInput);
         console.log(userDescriptionInput);
     },
-    
+
     "click #userDescriptionText": function() {
+        console.log("kommer den hit????");
         $('#inputDescription').show();
         console.log($('#inputDescription').length);
     }

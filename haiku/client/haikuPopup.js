@@ -37,14 +37,16 @@ Template.haikuPopup.events({
     },
 
     "click #commentButton" : function(){
-            $('#editUserComment').toggle();   
+            $('#editUserComment').slideToggle("fast");   
     },
 
     "click #postHaikuCommentButton" : function(event, template){
         event.preventDefault();
-        var commentToPost = template.find("#userComment").value;
-        var haikuId = this._id;
-        Meteor.call('addComment',haikuId,commentToPost);
+        if(template.find("#userComment").value!=""){
+            var commentToPost = template.find("#userComment").value;
+            var haikuId = this._id;
+            Meteor.call('addComment',haikuId,commentToPost);
+        }
     }
 
 
