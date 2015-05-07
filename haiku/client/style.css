@@ -219,12 +219,14 @@ header {
   display:inline
 }
 #userComment {
+  width: 70%;
   float: left;
-  display:inline
+  margin-right: 10px;
 }
 #postHaikuCommentButton {
   float: left;
   display:inline
+  margin-left: 10px;
 }
 #shareButton {
   float: right;
@@ -233,6 +235,11 @@ header {
 #footerButtons {
   display: inline;
   padding: 1px;
+}
+#footerButtons form {
+  padding-top: 13px;
+  display: inline;
+  float: left;
 }
 #haikuText p {
   color: gray;
