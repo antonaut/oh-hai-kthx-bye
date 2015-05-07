@@ -49,3 +49,10 @@ Template.haikuPopup.events({
 
 
 });
+
+Template.haikuPopup.created = function(){
+    $.getScript("/js/share.min.js", function () {
+        new Share("#shareButton");
+    });
+
+};
