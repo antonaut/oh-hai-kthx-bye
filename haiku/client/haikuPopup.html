@@ -61,12 +61,12 @@
                                     <div class="form-group">
                                         <label for="comment"></label>
                                         <textarea class="form-control" id="userComment" value="" placeholder="write comment here" rows="1"></textarea>
-                                    </div>                                    
-                                </form>
-                                <button class="btn" id="postHaikuCommentButton">Post!</button>                                
-                            </div>                            
-                            
-                            <!--<button class="btn btn-default" id="shareButton"><span class="glyphicon glyphicon-share"></span>Share</button>-->
+                                        <button class="btn" id="postHaikuCommentButton">Post!</button> 
+                                    </div>
+                                                                        
+                                </form>                             
+
+                            </div>
                         </div>
 
 
@@ -76,7 +76,7 @@
                       <div id="commentArea">
                         {{#each getComments}}
                         <div class="comment">
-                            {{username}} - {{text}}
+                            <b>{{username}}</b> - {{text}}
                         </div>
                         {{/each}}
                     </div>

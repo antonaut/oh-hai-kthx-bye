@@ -63,6 +63,8 @@ header {
   box-shadow: 0 0 40px #144914;
   z-index: 10;
 }
+.modal-footer {
+}
 #userProfilePage{
   padding: 0;
 }
@@ -122,6 +124,9 @@ header {
 }
 
 #commentArea {
+  max-height: 70px;
+  width: 100%;
+  overflow-y: auto;
   float: left;
   clear:both;
   text-align: left;
@@ -180,6 +185,10 @@ header {
   color: #FFFFFF;
 }
 
+.sharer-0 label span {
+  font-family:  'Coming Soon', cursive, sans-serif;
+}
+
 #haikuImage img {
   width: 100%;
   height: auto;
@@ -199,14 +208,14 @@ header {
 }
 #likeButton {
   float: left;
-  padding: 10px;
+  padding-right: 10px;
 }
 .glyphicon.glyphicon-heart {
     font-size: 30px;
 }
 #commentButton {
   float: left;
-  padding: 10px;
+  padding-right: 10px;
   display:inline
 }
 .glyphicon.glyphicon-comment {
@@ -219,12 +228,14 @@ header {
   display:inline
 }
 #userComment {
+  width: 70%;
   float: left;
-  display:inline
+  margin-right: 10px;
 }
 #postHaikuCommentButton {
   float: left;
   display:inline
+  margin-left: 10px;
 }
 #shareButton {
   float: right;
@@ -232,6 +243,11 @@ header {
 #footerButtons {
   display: inline;
   padding: 1px;
+}
+#footerButtons form {
+  /*padding-top: 13px;*/
+  display: inline;
+  float: left;
 }
 #haikuText p {
   color: gray;
