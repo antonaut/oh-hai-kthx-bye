@@ -40,6 +40,8 @@ Meteor.methods({
         textColor: textColor,
         imageSrc: imageSrc,
         createdAt: new Date(),
+        shares: 0,
+        likes: 0,
         owner: Meteor.userId(),
         username: Meteor.user().username
       });
@@ -105,10 +107,13 @@ Meteor.methods({
       });
     }
   },
-  userDescription: function(userID, userDescriptionInput){
+  userDescription: function(userDescriptionInput){
+    if(!Meteor.user()){
+        throw new Meteor.Error("not-authorized");
+    }
     Users.update(
-      {_id: userID},
-      {userDescription: userDescription}
+        {_id: Meteor.userId()},
+        {userDescription: userDescriptionInput}
       );
   }
 
