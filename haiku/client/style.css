@@ -207,20 +207,31 @@ header {
 #commentButton {
   float: left;
   padding: 10px;
+  display:inline
 }
 .glyphicon.glyphicon-comment {
     font-size: 30px;
 }
 #editUserComment {
   float: left;
-  margin-left: 30px;
-  padding-top: 5px;
+  margin-left: 0px;
+  padding-top: 0px;
+  display:inline
+}
+#userComment {
+  float: left;
+  display:inline
+}
+#postHaikuCommentButton {
+  float: left;
+  display:inline
 }
 #shareButton {
   float: right;
   padding: 10px;
 }
 #footerButtons {
+  display: inline;
   padding: 1px;
 }
 #haikuText p {
