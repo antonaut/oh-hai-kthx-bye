@@ -1,5 +1,4 @@
 var getUsername = function(){
-    console.log("getUsername");
     if(Meteor.user().username){
         return Meteor.user().username
     }
