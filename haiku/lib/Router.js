@@ -9,7 +9,7 @@ Router.route('/new-haiku',function(){
 Router.route('/haiku/:id',function(){
     var haikuId = this.params.id;
     Session.set("redirectHaiku",haikuId);
-    this.render('firstPage');
+    Router.go('/');
 });
 
 /*Router.route('/user/_:id',function(){

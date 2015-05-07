@@ -6,6 +6,7 @@ Template.haiku.events({
         var id = this._id;
 
         var haikuData = Haikus.findOne({_id:id});
+        Session.set("haikuData",haikuData);
         Modal.show('haikuPopup',haikuData);
     }
 });

@@ -51,8 +51,28 @@ Template.haikuPopup.events({
 });
 
 Template.haikuPopup.created = function(){
+    var haikuData = Session.get("haikuData");
+    Session.set("haikuData",null);
+    var domainAddress = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+    var appName = Session.get("appName");
+    shareConfig = {
+        url : domainAddress+"/haiku/"+haikuData._id,
+        title: appName,
+        description: haikuData.poemRow1+"\n"+haikuData.poemRow2+"\n"+haikuData.poemRow3,
+        image: haikuData.imageSrc,
+        networks: {
+            facebook: {
+                app_id: '100165010320303',
+                load_sdk: true
+
+            }
+        }
+
+    };
+    console.log(shareConfig);
+
     $.getScript("/js/share.min.js", function () {
-        new Share("#shareButton");
+        new Share("#shareButton",shareConfig);
     });
 
 };

@@ -7,3 +7,5 @@ availableTextFonts = [{name:"Times New Roman",filePath:"fonts/TimesNewRoman.ttf"
 					  {name:"Garamond",filePath:"fonts/Garamond.ttf"}];
 
 maxHaikusToShowOnEachPage = 100;
+
+facebookAppId = '100165010320303';

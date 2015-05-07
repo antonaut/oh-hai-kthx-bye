@@ -110,6 +110,7 @@ Meteor.subscribe("haikus", function() {
     if(redirectHaiku){
         Session.set("redirectHaiku",null);
         var haikuData = Haikus.findOne({_id:redirectHaiku});
+        Session.set("haikuData",haikuData);
         Modal.show('haikuPopup',haikuData);
     }
 });
