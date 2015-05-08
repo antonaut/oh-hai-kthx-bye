@@ -12,7 +12,6 @@ blaze-tools@1.0.3-rc.0
 boilerplate-generator@1.0.3-rc.0
 callback-hook@1.0.3-rc.0
 check@1.0.5-rc.0
-coffeescript@1.0.6-rc.0
 ddp@1.1.0-rc.1
 deps@1.0.7-rc.0
 ejson@1.0.6-rc.0
@@ -32,7 +31,6 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
-joshowens:shareit@0.3.1
 jquery@1.11.3-rc.0_2
 json@1.0.3-rc.0
 launch-screen@1.0.2-rc.0
@@ -63,7 +61,6 @@ session@1.1.0-rc.0
 sha@1.0.3-rc.0
 spacebars@1.0.6-rc.0
 spacebars-compiler@1.0.5-rc.0
-spiderable@1.0.7-rc.0
 srp@1.0.3-rc.0
 templating@1.1.0-win.0
 tracker@1.0.6-win.0
