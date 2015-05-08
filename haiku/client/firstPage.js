@@ -65,6 +65,22 @@ var searchHaikus = function(searchWord) {
     });
 };
 
+var mostSharedHaikus = function(){
+    return Haikus.find(
+        {},
+        {
+            sort:{shares:-1}
+        }
+
+    ).map(function(document,index){
+        document.toTheLeft = index % 2 === 0;
+        document.imagesSecond = index % 4 >= 2;
+        return document;
+    })
+};
+
+
+
 
 Template.firstPage.helpers({
     getPopupTemplate: function(){
@@ -79,14 +95,24 @@ Template.firstPage.helpers({
         if(haikuToDisplay === 'most-liked'){
             return mostLikedHaikus();
         }
+        else if(haikuToDisplay ==='most-shared'){
+            return mostSharedHaikus();
+        }
         else{
             return latestHaikus();
         }
     },
     textAboutHaikuDisplayed : function(){
+        var searchTerm =  Session.get("searchTerm");
         var haikuDisplayed = Session.get("haiku-display");
+        if(searchTerm){
+            return "search for "+searchTerm;
+        }
         if(haikuDisplayed === 'most-liked'){
             return "most liked haikus...";
+        }
+        else if(haikuDisplayed === 'most-shared'){
+            return "most shared haikus...";
         }
         else{
             return "latest haikus...";

@@ -2,6 +2,10 @@
  * Created by Fredrik on 2015-04-16.
  */
 
+var reportShare = function(haikuId){
+    Meteor.call("addToShareCount",haikuId);
+};
+
 var getNumberOfLikers = function(haikuId){
     var result = Likes.find({haikuId: haikuId});
     return result.count();
@@ -55,19 +59,44 @@ Template.haikuPopup.events({
 Template.haikuPopup.created = function(){
     var haikuData = Session.get("haikuData");
     Session.set("haikuData",null);
+    var haikuId = haikuData._id;
     var domainAddress = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
     var appName = Session.get("appName");
     shareConfig = {
-        url : domainAddress+"/haiku/"+haikuData._id,
+        url : domainAddress+"/haiku/"+haikuId,
         title: appName,
         description: haikuData.poemRow1+"\n"+haikuData.poemRow2+"\n"+haikuData.poemRow3,
         image: haikuData.imageSrc,
         networks: {
+            google_plus: {
+                after: function() {
+                    reportShare(haikuId)
+                }
+            },
+            twitter: {
+                after: function() {
+                    reportShare(haikuId)
+                }
+            },
             facebook: {
                 app_id: '100165010320303',
-                load_sdk: true
-
+                load_sdk: true,
+                after: function() {
+                    reportShare(haikuId)
+                }
+            },
+            pinterest:{
+                after: function(){
+                    reportShare(haikuId)
+                }
+            },
+            email:{
+                after: function(){
+                    reportShare(haikuId)
+                }
             }
+
+
         }
 
     };

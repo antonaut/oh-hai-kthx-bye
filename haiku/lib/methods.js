@@ -74,17 +74,26 @@ Meteor.methods({
     if (!Meteor.user()) {
       throw new Meteor.Error("not-authorized");
     } else {
-      var likeInfo = {
-        userId: Meteor.userId(),
-        haikuId: haikuId
-      };
+      //Checks that the haikuId exists
+      var haiku = Haikus.findOne({
+        _id: haikuId
+      });
+      if (!haiku) {
+        throw new Meteor.Error("incorrect-input");
+      }
+      else{
+        var likeInfo = {
+          userId: Meteor.userId(),
+          haikuId: haikuId
+        };
 
-      var existingLikes = Likes.findOne(likeInfo);
+        var existingLikes = Likes.findOne(likeInfo);
 
-      if (existingLikes) {
-        Likes.remove(likeInfo);
-      } else {
-        Likes.insert(likeInfo);
+        if (existingLikes) {
+          Likes.remove(likeInfo);
+        } else {
+          Likes.insert(likeInfo);
+        }
       }
     }
   },
@@ -93,24 +102,33 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-      if (!(typeof text === "string")) {
+      //Check if haikuId exists
+      var haiku = Haikus.findOne({
+        _id: haikuId
+      });
+      if (!haiku) {
         throw new Meteor.Error("incorrect-input");
       }
-      else {
-        Comments.insert({
-          userId: Meteor.userId(),
-          username: getUsername(),
-          haikuId: haikuId,
-          text: text
-        });
-      }
+      else{
+        if (!(typeof text === "string")) {
+          throw new Meteor.Error("incorrect-input");
+        }
+        else {
+          Comments.insert({
+            userId: Meteor.userId(),
+            username: getUsername(),
+            haikuId: haikuId,
+            text: text
+          });
+        }
+    }
     }
   },
   removeComment: function(commentId) {
-    var comment = Haikus.findOne({
+    var comment = Comments.findOne({
       _id: commentId
     });
-    var commentingUserId = comment["user"];
+    var commentingUserId = comment["userId"];
 
     if (commentingUserId !== Meteor.userId() || !Meteor.user()) {
       throw new Meteor.Error("not-authorized");
@@ -120,13 +138,27 @@ Meteor.methods({
       });
     }
   },
+  addToShareCount: function(haikuId){
+    console.log("addToShareCount");
+    Haikus.update(
+        {
+          _id: haikuId
+        },
+        {
+          $inc: {
+            shares:1
+          }
+        }
+    )
+  },
   userDescription: function(userDescriptionInput){
     if(!Meteor.user()){
         throw new Meteor.Error("not-authorized");
     }
     Users.update(
         {
-            _id: Meteor.userId()},
+            _id: Meteor.userId()
+        },
         {
             $set: {
                 userDescription: userDescriptionInput

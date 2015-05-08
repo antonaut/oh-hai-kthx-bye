@@ -1,3 +1,14 @@
+var toFirstPageIfNotThere = function(){
+    var location = Iron.Location.get().pathname;
+    if(location !== "/"){
+        Router.go("/");
+    }
+};
+var resestSearchString = function(){
+    $("#searchString").val("");
+    Session.set("searchTerm",null);
+};
+
 Template.nav.helpers({
     appname: function() {
  	   return Session.get('appName');
@@ -6,19 +17,22 @@ Template.nav.helpers({
 
 Template.nav.events({
     "click #most-liked-haikus" : function(){
-        console.log("most-liked-haikus");
         Session.set("haiku-display","most-liked");
-        var location = Iron.Location.get().pathname;
-        $("#searchString").val("");
-        if(location !== "/"){
-            Router.go("/");
-        }
+        toFirstPageIfNotThere();
+        resestSearchString();
+    },
+    "click #most-shared-haikus" : function(){
+        Session.set("haiku-display","most-shared");
+        toFirstPageIfNotThere();
+        resestSearchString();
     },
     "click #app-icon" : function(){
         Session.set("haiku-display","latest");
+        resestSearchString();
     },
     "click #searchBtn" : function(event,template){
         var searchString = template.find("#searchString").value;
+        $("#searchString").val("");
         Session.set("searchTerm",searchString);
     }
 });
