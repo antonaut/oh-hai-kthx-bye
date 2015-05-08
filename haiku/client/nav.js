@@ -15,7 +15,6 @@ Template.nav.events({
         }
     },
     "click #app-icon" : function(){
-        console.log("#app-icon");
         Session.set("haiku-display","latest");
     },
     "click #searchBtn" : function(event,template){

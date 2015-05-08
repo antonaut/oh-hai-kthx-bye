@@ -62,6 +62,8 @@ Template.createNewHaiku.events({
         }
         var theImageToUse = urlFromFlickrPhoto(Session.get('haikuImage'));
         Meteor.call('addHaiku', row1, row2, row3, theFontToUse, theColorToUse, theImageToUse);
+        Session.set("haiku-display","latest");
+        Router.go('/');
     },
     "click #font-chooser li a": function(event) {
         chosenFont = event.target.innerHTML;
