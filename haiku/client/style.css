@@ -1,6 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #CEF9CE;
+  /*background-color: #CEF9CE;*/
+  background-color: #E2EAE2;
   background-attachment: fixed;
   position: absolute;
   top: 0;
@@ -17,7 +18,8 @@ body {
   padding: 0;
 }
 header {
-  background: #144914;
+  /*background: #144914;*/
+  background: #112611;
   width: 100%;
   padding: 20px 15px 15px 15px;
   position: fixed;
@@ -43,7 +45,8 @@ header {
   color: #fff;
 }
 #firstPage {
-  background: #E4FDE4;
+  /*background: #E4FDE4;*/
+  background: #E2EAE2;
 }
 #firstPageColumn1 {
   padding: 0;
@@ -58,13 +61,19 @@ header {
   border-style: double;
 }
 #firstPageColumn1:hover {
-  -moz-box-shadow: 0 0 40px #144914;
-  -webkit-box-shadow: 0 0 40px #144914;
-  box-shadow: 0 0 40px #144914;
+  -moz-box-shadow: 0 0 40px #112611;
+  -webkit-box-shadow: 0 0 40px #112611;
+  box-shadow: 0 0 40px #112611;
   z-index: 10;
 }
 .modal {
-  /*opacity: 0.9;*/
+  /*border-style: solid;
+  border-color: #000000;
+  border-radius: 10px;
+  opacity: 0.9;*/
+}
+.modal-header {
+  background: #FFFFFF;
 }
 .modal-footer {
   background: #FFFFFF;
@@ -77,7 +86,7 @@ header {
 }
 #userProfileDiv {
   background: #fff;
-  border-color: #144914;
+  border-color: #112611;
   border-style: double;
   padding: 0px;
 }
@@ -146,15 +155,15 @@ header {
 
 #createNewHaiku {
   background: rgba(255,255,255,0);
-  border-color: #144914;
+  /*border-color: #112611;
   border-style: none;
-  border-radius: 5px 5px;
+  border-radius: 5px 5px;*/
 }
 
 #imageAndTextDiv {
   background: #fff;
-  border-color: #144914;
-  border-style: double;
+  /*border-color: #112611;
+  border-style: double;*/
   overflow: hidden;
 }
 
@@ -175,10 +184,10 @@ header {
   background: white;
   font-family: 'Open Sans', sans-serif;
   color: #000000;
-  border-color: #144914;
+  border-color: #112611;
 }
 #login-buttons .login-button:hover, .accounts-dialog .login-button:hover {
-  background: #144914;
+  background: #112611;
   color: #FFFFFF;
 }
 #login-buttons a {
@@ -252,6 +261,23 @@ header {
   float: left;
   margin-right: 10px;
 }
+#username a {
+  color: black;
+}
+#username a:hover{
+  color: gray;
+  text-decoration: none !important;
+}
+/*
+#username h3 {
+  color: #FFFFFF;
+}
+.close {
+  color: #FFFFFF;
+}
+.close:hover {
+  color: #FFFFFF;
+}*/
 #postHaikuCommentButton {
   float: left;
   display:inline
@@ -314,7 +340,7 @@ div.feature a {
 }
 h1 {
   font-size: 1.5em;
-  color: #E4FDE4;
+  color: #E2EAE2;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
