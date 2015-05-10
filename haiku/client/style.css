@@ -48,8 +48,8 @@ header {
 #firstPageColumn1 {
   padding: 0;
   background: #fff;
-  border-color: #FFFFFF;
-  border-style: double;
+  /*border-color: #FFFFFF;
+  border-style: double;*/
 }
 #firstPageColumn1MODAL {
   padding: 0;
@@ -200,8 +200,8 @@ header {
 }
 */
 #haikuImage {
-  width: 283px;
-  height: 283px;
+  width: 287px;
+  height: 287px;
   padding: 0;
   background-position: 50% 25%;
   background-size: cover;
