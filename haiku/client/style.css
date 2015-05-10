@@ -1,5 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Indie Flower', cursive;*/
   /*background-color: #CEF9CE;*/
   background-color: #E2EAE2;
   background-attachment: fixed;
@@ -10,7 +11,7 @@ body {
   right: 0;
   padding-top: 70px;
   margin: 0;
-  font-size: 14px;
+  font-size: 120%;
 }
 .container {
   margin: 0 auto;
@@ -308,6 +309,8 @@ header {
   float: left;
 }
 #haikuText p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 140%;
   color: gray;
   margin: 10px auto;
 }
