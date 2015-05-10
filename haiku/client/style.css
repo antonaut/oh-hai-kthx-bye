@@ -174,6 +174,8 @@ header {
 
 #createNewHaikuImage {
   /*padding: 0;*/
+  background-position: 50% 25%;
+  background-size: cover;
 }
 #createNewHaikuImage img {
   padding: 0;
@@ -238,6 +240,10 @@ header {
 }
 .glyphicon.glyphicon-heart {
     font-size: 30px;
+    opacity: 0.90;
+}
+.glyphicon.glyphicon-heart:hover {
+    opacity: 1.0;
 }
 #commentButton {
   float: left;
@@ -250,6 +256,11 @@ header {
 }
 .glyphicon.glyphicon-comment {
     font-size: 30px;
+    color: gray;
+    opacity: 0.9;
+}
+.glyphicon.glyphicon-comment:hover {
+    opacity: 1.0;
 }
 #editUserComment {
   float: left;

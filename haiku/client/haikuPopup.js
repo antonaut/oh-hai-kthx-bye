@@ -15,7 +15,7 @@ Template.haikuPopup.helpers({
     "colorToUse" : function(haikuId) {
         var result = Likes.findOne({userId: Meteor.userId(), haikuId: haikuId});
         if (!result) {
-            return "black";
+            return "gray";
         }
         return "red";
 
@@ -50,6 +50,7 @@ Template.haikuPopup.events({
             var commentToPost = template.find("#userComment").value;
             var haikuId = this._id;
             Meteor.call('addComment',haikuId,commentToPost);
+            commentToPost.val('');
         }
     }
 
