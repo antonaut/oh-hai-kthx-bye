@@ -314,6 +314,12 @@ header {
   color: gray;
   margin: 10px auto;
 }
+.haikuTextModal {
+  font-family: 'Indie Flower', cursive;
+  font-size: 200%;
+  color: gray;
+  margin: 10px auto;
+}
 #editDiv {
   padding-top: 10px;
   padding-bottom: 10px;
