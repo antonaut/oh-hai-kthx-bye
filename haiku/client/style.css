@@ -1,5 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Indie Flower', cursive;*/
   /*background-color: #CEF9CE;*/
   background-color: #E2EAE2;
   background-attachment: fixed;
@@ -10,7 +11,7 @@ body {
   right: 0;
   padding-top: 70px;
   margin: 0;
-  font-size: 14px;
+  font-size: 120%;
 }
 .container {
   margin: 0 auto;
@@ -175,6 +176,8 @@ header {
 
 #createNewHaikuImage {
   /*padding: 0;*/
+  background-position: 50% 25%;
+  background-size: cover;
 }
 #createNewHaikuImage img {
   padding: 0;
@@ -239,6 +242,10 @@ header {
 }
 .glyphicon.glyphicon-heart {
     font-size: 30px;
+    opacity: 0.90;
+}
+.glyphicon.glyphicon-heart:hover {
+    opacity: 1.0;
 }
 #commentButton {
   float: left;
@@ -251,6 +258,11 @@ header {
 }
 .glyphicon.glyphicon-comment {
     font-size: 30px;
+    color: gray;
+    opacity: 0.9;
+}
+.glyphicon.glyphicon-comment:hover {
+    opacity: 1.0;
 }
 #editUserComment {
   float: left;
@@ -310,6 +322,14 @@ header {
   float: left;
 }
 #haikuText p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 140%;
+  color: gray;
+  margin: 10px auto;
+}
+.haikuTextModal {
+  font-family: 'Indie Flower', cursive;
+  font-size: 200%;
   color: gray;
   margin: 10px auto;
 }
