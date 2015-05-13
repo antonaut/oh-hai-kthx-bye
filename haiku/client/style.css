@@ -286,6 +286,7 @@ header {
   margin-right: 10px;
 }
 #username a {
+  text-decoration: underline;
   color: black;
 }
 #username a:hover{
