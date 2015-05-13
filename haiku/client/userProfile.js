@@ -10,21 +10,15 @@ Template.userProfile.events({
         var userInputText = $(template.find('#userDescriptionText'));
         userInputText.show();
 
-        if(userDescriptionInput === ""){
-            userDescriptionInput = "Click here to update your description";
-            userInputText.css("font-style","italic");
-        }
-        else{
-            userInputText.css("font-style","normal");
-        }
-
         Meteor.call('userDescription', userDescriptionInput);
     },
 
     "click #userDescriptionText": function(event,template) {
         if(isThisUser(this._id)) {
             $(template.find('#inputDescription')).show();
+            $(template.find('#userDescriptionInput')).focus();
             $(template.find('#userDescriptionText')).hide();
+
         }
     }
 });

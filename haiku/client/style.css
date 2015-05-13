@@ -195,9 +195,19 @@ header {
   background: #112611;
   color: #FFFFFF;
 }
+
 #login-buttons a {
   color: #000000;
 }
+
+#login-buttons:hover a {
+    color: #112611;
+}
+
+#login-sign-in-link,#login-sign-in-link:hover{
+    color: #FFFFFF !important;
+}
+
 
 #login-buttons #login-name-link {
   color: #FFFFFF;

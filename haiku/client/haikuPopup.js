@@ -30,8 +30,7 @@ Template.haikuPopup.helpers({
         return getNumberOfLikers(this._id)>0;
     },
     "getComments" : function(){
-        var comments = Comments.find({haikuId: this._id});
-        return comments
+        return Comments.find({haikuId: this._id})
     }
 });
 
@@ -52,6 +51,12 @@ Template.haikuPopup.events({
             Meteor.call('addComment',haikuId,commentToPost);
             commentToPost.val('');
         }
+    },
+    "click #usernameLink" : function(event){
+        event.preventDefault();
+        Router.go("/user/"+this.owner);
+        $(window).scrollTop(0);
+        Modal.hide(this);
     }
 
 
@@ -63,7 +68,7 @@ Template.haikuPopup.created = function(){
     var haikuId = haikuData._id;
     var domainAddress = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
     var appName = Session.get("appName");
-    shareConfig = {
+    var shareConfig = {
         url : domainAddress+"/haiku/"+haikuId,
         title: appName,
         description: haikuData.poemRow1+"\n"+haikuData.poemRow2+"\n"+haikuData.poemRow3,
@@ -101,7 +106,6 @@ Template.haikuPopup.created = function(){
         }
 
     };
-    console.log(shareConfig);
 
     $.getScript("/js/share.min.js", function () {
         new Share("#shareButton",shareConfig);
