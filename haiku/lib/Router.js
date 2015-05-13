@@ -12,10 +12,13 @@ Router.route('/haiku/:id',function(){
     Router.go('/');
 });
 
-/*Router.route('/user/_:id',function(){
-    var item = Users.findOne({_id: this.params._id});
-    this.render('userProfile',{userData: item})
-});*/
-Router.route('/user',function(){
-    this.render('userProfile')
+Router.route('/user/:id',function(){
+    var item = Meteor.users.findOne({_id: this.params.id});
+    if(!item){
+        Router.go('/');
+    }
+    this.render('userProfile',{data: item})
 });
+/*Router.route('/user',function(){
+    this.render('userProfile')
+});*/

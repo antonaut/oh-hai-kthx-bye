@@ -85,13 +85,15 @@ header {
   padding: 0;
 }
 #userProfileDiv {
+  width: 100%;
+  height: auto;
   background: #fff;
   border-color: #112611;
   border-style: double;
-  padding: 0px;
+  padding: 0;
+  margin-bottom: 2px;
 }
 #userDescription{
-  padding: 0;
 }
 #userPhoto {
   padding: 0;
