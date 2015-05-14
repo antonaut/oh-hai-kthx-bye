@@ -182,7 +182,9 @@ header {
   height: 450px;
   width: 450px;
 }
-
+#myProfile {
+  float: right;
+}
 #login-buttons .login-button, .accounts-dialog .login-button {
   background: white;
   font-family: 'Open Sans', sans-serif;
@@ -200,6 +202,9 @@ header {
 #login-buttons #login-name-link {
   color: #FFFFFF;
 }
+#login-buttons #login-sign-in-link{
+  color: #FFFFFF; 
+}
 
 /*
 #haikuImage img {
@@ -212,8 +217,8 @@ header {
 }
 */
 #haikuImage {
-  width: 287px;
-  height: 287px;
+  width: 273px;
+  height: 273px;
   padding: 0;
   background-position: 50% 25%;
   background-size: cover;
@@ -323,7 +328,7 @@ header {
   font-family: 'Indie Flower', cursive;
   font-size: 140%;
   color: gray;
-  margin: 10px auto;
+  /*margin: 10px auto;*/
 }
 .haikuTextModal {
   font-family: 'Indie Flower', cursive;

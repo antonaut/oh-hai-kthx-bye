@@ -1,9 +1,9 @@
-<template name="haiku">
+<!--<template name="haiku">
 
-    <!-- FIRST COLUMN -->
+    <!-- FIRST COLUMN 
     <div class="row-same-height ui-content haikuDiv" data-role="main">
-        <!--<a href="#popUpHaiku">-->
-        <div class="col-lg-5 {{#if toTheLeft}}col-lg-offset-1 {{/if}}  feature" id="firstPageColumn1">
+        <!--<a href="#popUpHaiku">
+        <div class="col-lg-5 col-xs-12 {{#if toTheLeft}}col-lg-offset-1 {{/if}}  feature" id="firstPageColumn1">
 
           {{#unless imagesSecond}}
             {{>haikuImage}}
@@ -14,24 +14,38 @@
           {{/if}}
 
         </div>
+    </div>
+</template>
+-->
+<!-- jdlkfjdslkfjsdlkfjlskdjflksjdlfkjslkdfjsdlkfjldskjflsdkjflksdjflksdjflksjlkfdjslkfjdslkfjsdlkfjsdlkfjsdlkfjsdlkfjlsdkfjlsdk -->
 
+<template name="haiku">
 
+      <div class="haikuDiv" data-role="main">
+        <div class="col-xs-6" id="firstPageColumn1">
 
-        <!-- DETTA ÄR DIVEN SOM POPPAR UPP NÄR MAN KLICKAR PÅ EN HAIKU -->
-        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-1">hej</button>-->
+          {{#unless imagesSecond}}
+            {{>haikuImage}}
+          {{/unless}}
+          {{>haikuText}}
+          {{#if imagesSecond}}
+            {{>haikuImage}}
+          {{/if}}
+
+        </div>
     </div>
 </template>
 
 
-<!-- -->
+<!-- jdlkfjdslkfjsdlkfjlskdjflksjdlfkjslkdfjsdlkfjldskjflsdkjflksdjflksdjflksjlkfdjslkfjdslkfjsdlkfjsdlkfjsdlkfjsdlkfjlsdkfjlsdk -->
 <template name="haikuImage">
-    <div class="col-lg-6 col-lg-height col-top" id="haikuImage" style="background-image:url({{imageSrc}});">
+    <div class="col-xs-6" id="haikuImage" style="background-image:url({{imageSrc}});">
     </div>
 </template>
 
 <!-- -->
 <template name="haikuText">
-    <div class="col-lg-6 col-lg-height col-bottom" id="haikuText" width="284" height="284" style='font-family:"{{textFont}}";color:{{textColor}}'>
+    <div class="col-xs-6" id="haikuText" style='font-family:"{{textFont}}";color:{{textColor}}'>
         <br><br><br><br><br>
         <p>"{{poemRow1}}</p>
         <p>{{poemRow2}}</p>

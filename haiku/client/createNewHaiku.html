@@ -3,10 +3,10 @@
 
   <!-- CREATE NEW HAIKU TEMPLATE -->
 
-  <div class ="col-lg-10 col-lg-offset-1" id="createNewHaiku">
+  <div class ="col-xs-10 col-xs-offset-1" id="createNewHaiku">
 
      <!-- EDIT HAIKU DIV -->
-    <div id="editDiv" class="col-lg-offset-1">
+    <div id="editDiv" class="col-xs-offset-1">
       <!-- FONT-->
       <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -48,9 +48,9 @@
     <!--!!!!!!!!!!!!!!!!!!!!!!!!!--> 
 
     <!-- HAIKUIMAGE and -TEXT DIV-->
-    <div id="imageAndTextDiv" class="col-lg-10 col-lg-offset-1">
+    <div id="imageAndTextDiv" class="col-xs-10 col-xs-offset-1">
       
-      <div class="col-lg-6 col-md-6 col-xs-12" id="haikuText">
+      <div class="col-xs-6 col-md-6 col-xs-12" id="haikuText">
         <form>
           <p><i>5 syllables:</i></p><input type="text" id="row1" value="" size="40">
           <p><i>7 syllables:</i></p><input type="text" id="row2" value="" size="40">
@@ -58,7 +58,7 @@
         </form>
       </div>
 
-      <div class="col-lg-6 col-md-6 col-xs-12" id="createNewHaikuImage">
+      <div class="col-xs-6 col-md-6 col-xs-12" id="createNewHaikuImage">
         {{#with haikuImage}}
           {{> flickrPhoto}}
         {{/with}}
@@ -68,7 +68,7 @@
     <!--!!!!!!!!!!!!!!!!!!!!!!!!!--> 
 
     <!-- POST BUTTON-->
-    <div class="col-lg-2 col-lg-offset-9" id="postBtnDiv">
+    <div class="col-xs-2 col-xs-offset-9" id="postBtnDiv">
       <button class="btn btn-default btn-lg" id="postHaikuBtn" type="submit">Post</button>
     </div>
     <div class="clearfix"></div>
