@@ -3,7 +3,7 @@
   <header class="navbar navbar-fixed-top">
     <div class="container-fluid">
       {{> loginButtons}}
-      <a id="app-icon" href=".">
+      <a id="app-icon" href="/">
         <h1>
           <b>{{appname}}</b>
         </h1>
@@ -23,6 +23,7 @@
       {{#if isLoggedIn}}
         <a class="btn btn-default" id="createNewHaikuBtn" type="submit" href="new-haiku">Create Haiku</a>
         <a class="btn btn-default" id="myProfile" type="submit" href="user">My profile</a>
+
       {{/if}}
     </div>
   </header>

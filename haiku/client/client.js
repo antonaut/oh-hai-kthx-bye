@@ -1,6 +1,7 @@
 Meteor.subscribe('haikus');
 Meteor.subscribe("likes");
 Meteor.subscribe('comments');
+Meteor.subscribe('users');
 
 Session.set('appName', 'Haiku 俳句');
 Session.set('lastImageSearch', new Date());

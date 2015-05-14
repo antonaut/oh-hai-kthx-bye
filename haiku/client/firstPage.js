@@ -46,11 +46,7 @@
 };
 
 var latestHaikus = function() {
-    return Haikus.find({}, {sort: {createdAt: -1}, limit: maxHaikusToShowOnEachPage}).map(function (document, index) {
-        document.toTheLeft = index % 2 === 0;
-        document.imagesSecond = index % 4 >= 2;
-        return document;
-    });
+    return Haikus.find({}, {sort: {createdAt: -1}, limit: maxHaikusToShowOnEachPage}).map(addAlignmentParametersToHaikus);
 };
 
 var searchHaikus = function(searchWord) {
@@ -58,11 +54,7 @@ var searchHaikus = function(searchWord) {
         {poemRow1:{$regex:searchWord} },
         {poemRow2:{$regex:searchWord} },
         {poemRow3:{$regex:searchWord} } ]
-    }).map(function (document, index) {
-        document.toTheLeft = index % 2 === 0;
-        document.imagesSecond = index % 4 >= 2;
-        return document;
-    });
+    }).map(addAlignmentParametersToHaikus);
 };
 
 var mostSharedHaikus = function(){
@@ -72,11 +64,7 @@ var mostSharedHaikus = function(){
             sort:{shares:-1}
         }
 
-    ).map(function(document,index){
-        document.toTheLeft = index % 2 === 0;
-        document.imagesSecond = index % 4 >= 2;
-        return document;
-    })
+    ).map(addAlignmentParametersToHaikus);
 };
 
 

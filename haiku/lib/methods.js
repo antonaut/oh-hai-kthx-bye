@@ -1,14 +1,6 @@
-var getUsername = function(){
-    if(Meteor.user().username){
-        return Meteor.user().username
-    }
-    else if(Meteor.user().profile.name){
-        return Meteor.user().profile.name;
-    }
-    else{
-        return Meteor.userId();
-    }
-};
+var getUsernameOfCurrentUser = function(){
+    return getUsername(Meteor.user());
+}
 
 Meteor.methods({
   addHaiku: function(poemRow1, poemRow2, poemRow3, textFont, textColor, imageSrc) {
@@ -52,11 +44,10 @@ Meteor.methods({
         textFont: textFont,
         textColor: textColor,
         imageSrc: imageSrc,
-        createdAt: new Date(),
         shares: 0,
-        likes: 0,
+        createdAt: new Date(),
         owner: Meteor.userId(),
-        username: getUsername()
+        username: getUsernameOfCurrentUser()
       });
     }
   },
@@ -116,7 +107,7 @@ Meteor.methods({
         else {
           Comments.insert({
             userId: Meteor.userId(),
-            username: getUsername(),
+            username: getUsernameOfCurrentUser(),
             haikuId: haikuId,
             text: text
           });
@@ -139,7 +130,6 @@ Meteor.methods({
     }
   },
   addToShareCount: function(haikuId){
-    console.log("addToShareCount");
     Haikus.update(
         {
           _id: haikuId
@@ -151,20 +141,27 @@ Meteor.methods({
         }
     )
   },
-  userDescription: function(userDescriptionInput){
-    if(!Meteor.user()){
-        throw new Meteor.Error("not-authorized");
-    }
-    Users.update(
-        {
-            _id: Meteor.userId()
-        },
-        {
-            $set: {
-                userDescription: userDescriptionInput
-            }
-        }
-      );
+  userDescription: function(userDescriptionInput) {
+      if (!Meteor.user()) {
+          throw new Meteor.Error("not-authorized");
+      }
+      else {
+          if(typeof userDescriptionInput !== "string"){
+              throw new Meteor.Error("incorrect-input");
+          }
+          else {
+              Meteor.users.update(
+                  {
+                      _id: Meteor.userId()
+                  },
+                  {
+                      $set: {
+                          userDescription: userDescriptionInput
+                      }
+                  }
+              );
+          }
+      }
   }
 
 
