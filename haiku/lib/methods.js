@@ -44,6 +44,7 @@ Meteor.methods({
         textFont: textFont,
         textColor: textColor,
         imageSrc: imageSrc,
+        shares: 0,
         createdAt: new Date(),
         owner: Meteor.userId(),
         username: getUsernameOfCurrentUser()
