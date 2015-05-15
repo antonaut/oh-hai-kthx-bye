@@ -11,20 +11,25 @@ Meteor.methods({
     else {
 
       if (!(typeof poemRow1 === "string" && typeof poemRow2 === "string" && typeof poemRow3 === "string" && typeof imageSrc === "string")) {
-        throw new Meteor.Error("incorrect-input")
+        throw new Meteor.Error("incorrect-input");
       }
-      else {
-        //Insert into collection
-        Haikus.insert({
-          poemRow1: poemRow1,
-          poemRow2: poemRow2,
-          poemRow3: poemRow3,
-          imageSrc: imageSrc,
-          shares: 0,
-          createdAt: new Date(),
-          owner: Meteor.userId(),
-          username: getUsernameOfCurrentUser()
-        });
+        else {
+          if (poemRow1.length > 50 || poemRow2.length > 50 || poemRow3.length > 50) {
+              throw new Meteor.Error("incorrect-input");
+          }
+          else {
+              //Insert into collection
+              Haikus.insert({
+                  poemRow1: poemRow1,
+                  poemRow2: poemRow2,
+                  poemRow3: poemRow3,
+                  imageSrc: imageSrc,
+                  shares: 0,
+                  createdAt: new Date(),
+                  owner: Meteor.userId(),
+                  username: getUsernameOfCurrentUser()
+              });
+          }
       }
     }
 
