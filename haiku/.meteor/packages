@@ -12,3 +12,4 @@ twbs:bootstrap
 http
 iron:router
 peppelg:bootstrap-3-modal
+mizzao:user-status
