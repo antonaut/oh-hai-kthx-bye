@@ -9,7 +9,7 @@ var url = function(farm, server, id, secret, size) {
 
 flickrPhotosInSession = function() {
 	var flickrPhotos = Session.get('flickrResults');
-	if (flickrPhotos.photos && flickrPhotos.photos.photo) {
+	if (flickrPhotos && flickrPhotos.photos && flickrPhotos.photos.photo) {
 		return flickrPhotos.photos.photo;
 	} else {
 		return [];

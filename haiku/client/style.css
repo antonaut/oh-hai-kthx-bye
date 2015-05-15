@@ -45,6 +45,9 @@ header {
 #login-buttons a:focus, #login-buttons a:hover {
   color: #fff;
 }
+.login-link-text{
+  font-size: 15px;
+}
 #firstPage {
   /*background: #E4FDE4;*/
   background: #E2EAE2;
