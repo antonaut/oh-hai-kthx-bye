@@ -26,9 +26,9 @@ urlFromFlickrPhoto = function(photo) {
 };
 
 
-Session.set('flickrResults', {
+/*Session.set('flickrResults', {
 	photos: {
-		photo: [/*{
+		photo: [{
 			id: '16287638134',
 			owner: '130080108@N02',
 			secret: 'd3ff2ffc58',
@@ -38,9 +38,10 @@ Session.set('flickrResults', {
 			ispublic: 1,
 			isfriend: 0,
 			isfamily: 0
-		}*/],
+		}],
 	},
 });
+*/
 
 
 Template.flickrtest.events({
