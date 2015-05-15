@@ -47,8 +47,12 @@ Template.createNewHaiku.events({
         chosenColor = event.target.innerHTML;
     },
     "click #refresh-image": function(event) {
-        console.log('Refreshing image.');
-        Session.set('haikuImage', randomFlickrPhoto());
+        var hej = Session.get('flickrResults');
+        if (hej && hej.photos && hej.photos.photo){
+            if (hej.photos.photo.length>0){
+                Session.set('haikuImage', randomFlickrPhoto());
+            } 
+        }        
     }
 });
 
