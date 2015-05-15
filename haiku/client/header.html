@@ -22,7 +22,7 @@
       </div>
       {{#if isLoggedIn}}
         <a class="btn btn-default" id="createNewHaikuBtn" type="submit" href="new-haiku">Create Haiku</a>
-        <a class="btn btn-default" id="myProfile" type="submit" href="user">My profile</a>
+        <a class="btn btn-default" id="myProfile" type="submit" href="user/{{getUserId}}">My profile</a>
 
       {{/if}}
     </div>

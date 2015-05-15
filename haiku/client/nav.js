@@ -12,6 +12,9 @@ var resestSearchString = function(){
 Template.nav.helpers({
     appname: function() {
  	   return Session.get('appName');
+    },
+    getUserId : function() {
+        return Meteor.userId();
     }
 });
 

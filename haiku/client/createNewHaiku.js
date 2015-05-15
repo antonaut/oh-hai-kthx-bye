@@ -34,34 +34,9 @@ Template.createNewHaiku.events({
         var row1 = template.find("#row1").value;
         var row2 = template.find("#row2").value;
         var row3 = template.find("#row3").value;
-        var theFontToUse;
 
-        if (typeof chosenFont === 'undefined') {
-            theFontToUse = availableTextFonts[0].filePath;
-
-        } else {
-            for (var i = 0; i < availableTextFonts.length; i++) {
-                if (availableTextFonts[i].name === chosenFont) {
-                    theFontToUse = availableTextFonts[i].filePath;
-                    break;
-                }
-            }
-        }
-        console.log(theFontToUse);
-
-        var theColorToUse;
-        if (typeof chosenColor === 'undefined') {
-            theColorToUse = availableTextColors[0].code;
-        } else {
-            for (var j = 0; j < availableTextColors.length; j++) {
-                if (availableTextColors[i].name === chosenColor) {
-                    theColorToUse = availableTextColors[i].code;
-                    break;
-                }
-            }
-        }
         var theImageToUse = urlFromFlickrPhoto(Session.get('haikuImage'));
-        Meteor.call('addHaiku', row1, row2, row3, theFontToUse, theColorToUse, theImageToUse);
+        Meteor.call('addHaiku', row1, row2, row3, theImageToUse);
         Session.set("haiku-display","latest");
         Router.go('/');
     },
