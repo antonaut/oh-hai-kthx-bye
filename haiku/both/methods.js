@@ -88,12 +88,17 @@ Meteor.methods({
           throw new Meteor.Error("incorrect-input");
         }
         else {
-          Comments.insert({
-            userId: Meteor.userId(),
-            username: getUsernameOfCurrentUser(),
-            haikuId: haikuId,
-            text: text
-          });
+          if(text.length>200){
+              throw new Meteor.Error("incorrect-input");
+          }
+            else {
+              Comments.insert({
+                  userId: Meteor.userId(),
+                  username: getUsernameOfCurrentUser(),
+                  haikuId: haikuId,
+                  text: text
+              });
+          }
         }
     }
     }
@@ -133,16 +138,21 @@ Meteor.methods({
               throw new Meteor.Error("incorrect-input");
           }
           else {
-              Meteor.users.update(
-                  {
-                      _id: Meteor.userId()
-                  },
-                  {
-                      $set: {
-                          userDescription: userDescriptionInput
+              if(userDescriptionInput.length>200){
+                  throw new Meteor.Error("incorrect-input");
+              }
+              else {
+                  Meteor.users.update(
+                      {
+                          _id: Meteor.userId()
+                      },
+                      {
+                          $set: {
+                              userDescription: userDescriptionInput
+                          }
                       }
-                  }
-              );
+                  );
+              }
           }
       }
   }
