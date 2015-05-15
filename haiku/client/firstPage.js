@@ -47,9 +47,10 @@ var latestHaikus = function() {
 
 var searchHaikus = function(searchWord) {
     return Haikus.find({$or : [
-        {poemRow1:{$regex:searchWord} },
-        {poemRow2:{$regex:searchWord} },
-        {poemRow3:{$regex:searchWord} } ]
+        {poemRow1:{$regex:searchWord, $options: 'i'} },
+        {poemRow2:{$regex:searchWord, $options: 'i'} },
+        {poemRow3:{$regex:searchWord, $options: 'i'} },
+        {username:{$regex:searchWord, $options: 'i'}}]
     });
 };
 
