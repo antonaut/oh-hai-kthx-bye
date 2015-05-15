@@ -9,3 +9,7 @@ getUsername = function(user){
         return user._id;
     }
 };
+addAlignmentParametersToHaikus = function (document, index) {
+    document.imagesSecond = index % 4 >= 2;
+    return document;
+};
