@@ -49,7 +49,7 @@ Template.haikuPopup.events({
             var commentToPost = template.find("#userComment").value;
             var haikuId = this._id;
             Meteor.call('addComment',haikuId,commentToPost);
-            commentToPost.val('');
+            template.find("#userComment").value('');
         }
     },
     "click #usernameLink" : function(event){

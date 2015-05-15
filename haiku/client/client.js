@@ -20,7 +20,3 @@ Accounts.ui.config({
 shareConfig = {
 
 };
-
-UserStatus.on("sessionLogout",function(){
-	Router.go("/");
-});
