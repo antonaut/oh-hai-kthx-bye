@@ -88,11 +88,19 @@ header {
 #userProfileDiv {
   width: 100%;
   height: auto;
-  background: #fff;
-  border-color: #112611;
-  border-style: double;
+  background: #E2EAE2;
+  /*border-color: #112611;
+  border-style: double;*/
   padding: 0;
   margin-bottom: 2px;
+}
+#totalLikes {
+  text-align: center;
+  padding-top: 1.5em;
+}
+#totalPosts {
+  text-align: center;
+  padding-top: 1.5em;
 }
 #userDescription{
 }
@@ -287,7 +295,7 @@ header {
 #userComment {
   width: 70%;
   float: left;
-  margin-right: 10px;
+  margin-right: 1px;
 }
 #username a {
   text-decoration: underline;
