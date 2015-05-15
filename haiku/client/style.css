@@ -58,8 +58,6 @@ header {
 #firstPageColumn1MODAL {
   padding: 0;
   background: #fff;
-  border-color: #FFFFFF;
-  border-style: double;
 }
 #firstPageColumn1:hover {
   -moz-box-shadow: 0 0 40px #112611;
@@ -236,14 +234,13 @@ header {
 }
 */
 #haikuImage {
-  width: 273px;
   height: 273px;
   padding: 0;
   background-position: 50% 25%;
   background-size: cover;
 }
 #haikuImageMODAL {
-  width: 431px;
+
   height: 431px;
   padding: 0;
   background-position: 50% 25%;
