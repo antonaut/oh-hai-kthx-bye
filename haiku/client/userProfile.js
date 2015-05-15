@@ -54,6 +54,6 @@ Template.userProfile.helpers({
         return totalLikes;
     },
     "getHaikus" : function(){
-        return Haikus.find({owner:this._id});
+        return Haikus.find({owner:this._id}).map(addAlignmentParametersToHaikus);
     }
 });
