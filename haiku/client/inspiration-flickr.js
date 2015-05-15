@@ -9,7 +9,6 @@ var url = function(farm, server, id, secret, size) {
 
 flickrPhotosInSession = function() {
 	var flickrPhotos = Session.get('flickrResults');
-	console.log('CALLED! photos: ', flickrPhotos);
 	if (flickrPhotos.photos && flickrPhotos.photos.photo) {
 		return flickrPhotos.photos.photo;
 	} else {
