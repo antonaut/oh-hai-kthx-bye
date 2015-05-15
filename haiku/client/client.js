@@ -20,3 +20,18 @@ Accounts.ui.config({
 shareConfig = {
 
 };
+
+var userWasLoggedIn = false;
+Deps.autorun(function (c) {
+  if(!Meteor.userId())
+  {
+    if(userWasLoggedIn)
+    {
+      Router.go("/");
+    }
+  }
+  else
+  {
+    userWasLoggedIn = true;
+  }
+});
