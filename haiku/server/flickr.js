@@ -34,7 +34,6 @@ var flickr = {
 		for (key in args) {
 			params[key] = args[key];
 		}
-		console.log(params);
 		return HTTP.call('GET', 'https://api.flickr.com/services/rest/', {'params': params});
 	}
 };
