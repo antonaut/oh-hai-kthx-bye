@@ -328,7 +328,7 @@ header {
 }*/
 #postHaikuCommentButton {
   float: left;
-  display:inline
+  display:inline,
   margin-left: 10px;
 }
 #shareButton {
